@@ -1,6 +1,6 @@
-# Beer-Button
+# BeerButton
 
-Beer-Button web application.
+BeerButton web application.
 
 ## Start rails server (puma) with esbuild and cssbundling
 
