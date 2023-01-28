@@ -1,0 +1,62 @@
+.device
+  .row
+    .col
+      -# .tooltip
+      -#   = image_tag "device_types/#{@device.device_type}.svg", height: '25px', width: '25px', style: 'position: absolute; top: 10px;'
+      -#   %span.tooltiptext
+      -#     = @device.device_type.name
+      .page__title
+        %h1
+          = @device.name
+
+    -# admin actions -----------------------------------------------------------
+    .admin-actions
+      -if current_user.admin? or @device.user == current_user
+        .admin-actions__link
+          = link_to edit_device_path(@device), class:'btn btn-ghost btn-square' do
+            %span.material-icons.admin-actions__link__icon= 'edit'
+
+      - if @device.user != current_user
+        .admin-actions__link
+          - if @device.user.admin? or current_user.admin?
+            = mail_to @device.user.email, body: "#{t('hi')} #{@device.user.username}\n\n...", class:'btn btn-ghost btn-square' do
+              %span.material-icons.admin-actions__link__icon= 'email'
+        - if current_user.admin? and @device.user.mobile_number.present?
+          .mobile_number= " (#{@device.user.mobile_number})"
+
+    -# device ------------------------------------------------------------------
+  .row
+    .col
+      %p
+        %b= t('activerecord.attributes.device.dev_eui') + ':'
+        = @device.dev_eui
+      %p
+        %b= t('activerecord.attributes.device.app_eui') + ':'
+        = @device.app_eui
+      %p
+        %b= t('activerecord.attributes.device.app_key') + ':'
+        = @device.app_key
+      %p
+        %b= t('activerecord.attributes.device.hw_version') + ':'
+        = @device.hw_version
+      %p
+        %b= t('activerecord.attributes.device.fw_version') + ':'
+        = @device.fw_version
+      %p
+        %b= t('activerecord.attributes.device.battery') + ':'
+        = @device.battery
+      %p
+        %b= t('activerecord.attributes.device.last_time_seen') + ':'
+        = @device.last_time_seen.localtime.to_s(:custom_datetime)
+      %p
+        %b= t('activerecord.attributes.device.created_at') + ':'
+        = @device.created_at.localtime.to_s(:custom_datetime)
+      %p
+        %b= t('activerecord.attributes.device.updated_at') + ':'
+        = @device.updated_at.localtime.to_s(:custom_datetime)
+      %p
+        %b= t('activerecord.attributes.device.device_type_id') + ':'
+        = @device.device_type_id
+      %p
+        %b= t('activerecord.attributes.device.user_id') + ':'
+        = @device.user_id

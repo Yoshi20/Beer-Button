@@ -19,12 +19,12 @@ protected
   end
 
   def user_root_path
-    new_user_session_path
+    home_path
   end
 
   def after_sign_in_path_for(resource)
     if request.referer.nil? or request.referer.include?('/users/')
-     new_user_session_path
+     home_path
     else
      request.referer
     end
@@ -37,7 +37,7 @@ protected
 private
 
   def after_sign_in_path_for(resource_or_scope)
-    new_user_session_path
+    home_path
   end
 
   def after_sign_out_path_for(resource_or_scope)
@@ -73,7 +73,7 @@ private
 
   def render_forbidden
     respond_to do |format|
-      format.html { redirect_to new_user_session_path, alert: t('flash.alert.unauthorized') }
+      format.html { redirect_to home_path, alert: t('flash.alert.unauthorized') }
       format.json { render json: { status: 'error', message: t('flash.alert.unauthorized') }, status: :forbidden }
     end
   end
