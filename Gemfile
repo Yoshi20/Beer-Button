@@ -13,7 +13,7 @@ gem "sprockets-rails"
 gem "pg", "~> 1.1"
 
 # Use the Puma web server [https://github.com/puma/puma]
-gem "puma", "~> 5.0"
+gem "puma", ">= 6.0.0"
 
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem "jsbundling-rails"
@@ -46,7 +46,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 # Use Sass to process CSS
-# gem "sassc-rails"
+gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
@@ -73,3 +73,34 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+# Added gems:
+
+# See https://github.com/plataformatec/devise
+gem 'devise' # (flexible authentication solution)
+
+# # See https://github.com/tigrish/devise-i18n
+# gem 'devise-i18n' # (devise locale data collection)
+#
+# # See https://github.com/smartinez87/exception_notification
+# gem 'exception_notification'
+#
+# # See https://github.com/laserlemon/figaro
+# gem 'figaro' # (ENV file: config/application.yml)
+#
+# # See http://haml.info
+# gem 'haml-rails' # (HAML)
+#
+# # See https://github.com/iain/http_accept_language
+# gem 'http_accept_language'
+#
+# # See https://github.com/jnunemaker/httparty
+# gem 'httparty'
+#
+# # See https://github.com/svenfuchs/rails-i18n
+# gem 'rails-i18n', '~> 7.0.0' # (rails locale data collection)
+#
+# group :development do
+#   gem 'better_errors'
+#   gem 'brakeman' # https://github.com/presidentbeef/brakeman
+# end
