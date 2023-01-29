@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_28_215500) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_29_124000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,6 +34,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_28_215500) do
     t.bigint "user_id"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.string "title"
+    t.string "text"
+    t.string "data"
+    t.boolean "acknowledged", default: false
+    t.string "acknowledged_by"
+    t.datetime "acknowledged_at", precision: nil
+    t.bigint "device_id"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -54,4 +66,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_28_215500) do
 
   add_foreign_key "devices", "device_types"
   add_foreign_key "devices", "users"
+  add_foreign_key "orders", "devices"
 end
