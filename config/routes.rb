@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :devices
 
   resources :orders, only: [:index, :show, :update, :destroy]
-  get 'orders_fullscreen' => 'orders#index_open'
+  get 'orders_open' => 'orders#index_open'
 
   devise_for :users
 

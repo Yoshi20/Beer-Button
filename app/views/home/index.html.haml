@@ -4,3 +4,17 @@
     .col.s12.center-align
       %h1.page-title{style: 'display: none;'}= 'BeerButton'
       -# = image_tag 'home_title.jpg', width: '100%', alt: 'Home title image'
+
+
+  = link_to 'Edit user', edit_user_registration_path
+  %br
+  %br
+
+  = form_with url: destroy_user_session_path, id: "log_out_form", method: :delete do |f|
+    = link_to t('navigation.account.log_out'), '#'
+
+  :javascript
+    document.getElementById("log_out_form").addEventListener("click", function(e) {
+      e.preventDefault();
+      document.getElementById("log_out_form").closest('form').submit()
+    });

@@ -2,56 +2,50 @@
 %nav.left.m.l
   -# = link_to root_path, class: (@section == 'welcome' ? 'active' : '') do
   -#   = image_tag 'profile_pic.webp', class: 'profile_pic circle small-margin', alt: 'BeerButton profile picture'
-  -# = link_to home_path(overlay: false), class: (@section == 'home' ? 'active' : '') do
-  -#   %i home
-  -#   %div= 'Home'
-  -# = link_to mint_path, class: (@section == 'mint' ? 'active' : '') do
-  -#   %i auto_awesome
-  -#   %div= 'Mint'
-  -# = link_to faq_path, class: (@section == 'faq' ? 'active' : '') do
-  -#   %i live_help
-  -#   %div= 'FAQs'
-  -# = link_to roadmap_path, class: (@section == 'roadmap' ? 'active' : '') do
-  -#   %i map
-  -#   %div= 'Roadmap'
-  -# = link_to nfts_path, class: (@section == 'database' ? 'active' : '') do
-  -#   %i filter
-  -#   %div= 'Database'
-  -# - if current_user.present?
-  -#   = link_to settings_path, class: (@section == 'settings' ? 'active' : ''), style: 'margin-top: auto;' do
-  -#     %i settings
-  -#     %div= t('settings.title')
-  -# -# - else
-  -# -#   = link_to session_path(:user), class: (@section == 'login' ? 'active' : ''), style: 'margin-top: auto;' do
-  -# -#     %i input
-  -# -#     %div= t('login')
-  -# .modal.large.left.no-scroll
-  -# .modal.left
+  = link_to home_path, class: (@section == 'home' ? 'active' : '') do
+    %i home
+    %div= 'Home'
+  = link_to devices_path, class: (@section == 'devices' ? 'active' : '') do
+    %i auto_awesome
+    %div= 'Devices'
+  = link_to orders_path, class: (@section == 'orders' ? 'active' : '') do
+    %i filter
+    %div= 'Closed Orders'
+  = link_to orders_open_url, class: (@section == 'orders' ? 'active' : '') do
+    %i filter
+    %div= 'Open Orders'
+  - if current_user.present?
+    -# = link_to settings_path, class: (@section == 'settings' ? 'active' : '') do
+    -#   %i settings
+    -#   %div= t('settings.title')
+  - else
+    = link_to session_path(:user), class: (@section == 'login' ? 'active' : ''), style: 'margin-top: auto;' do
+      %i input
+      %div= t('login')
+  .modal.large.left.no-scroll
+  .modal.left
 
 -# mobile view:
 %nav.bottom.s
-  -# = link_to home_path(overlay: false), class: (@section == 'home' ? 'active' : '') do
-  -#   %i home
-  -#   %div= 'Home'
-  -# = link_to mint_path, class: (@section == 'mint' ? 'active' : '') do
-  -#   %i auto_awesome
-  -#   %div= 'Mint'
-  -# = link_to faq_path, class: (@section == 'faq' ? 'active' : '') do
-  -#   %i live_help
-  -#   %div= 'FAQs'
-  -# = link_to roadmap_path, class: (@section == 'roadmap' ? 'active' : '') do
-  -#   %i map
-  -#   %div= 'Roadmap'
-  -# = link_to nfts_path, class: (@section == 'database' ? 'active' : '') do
-  -#   %i filter
-  -#   %div= 'Database'
-  -# -# - if current_user.present?
-  -# -#   = link_to settings_path, class: (@section == 'settings' ? 'active' : '') do
-  -# -#     %i settings
-  -# -#     %div= t('settings.title')
-  -# -# - else
-  -# -#   = link_to session_path(:user), class: (@section == 'login' ? 'active' : ''), style: 'margin-top: auto;' do
-  -# -#     %i input
-  -# -#     %div= t('login')
-  -# .modal.large.left.no-scroll
-  -# .modal.bottom.medium
+  = link_to home_path, class: (@section == 'home' ? 'active' : '') do
+    %i home
+    %div= 'Home'
+  = link_to devices_path, class: (@section == 'devices' ? 'active' : '') do
+    %i auto_awesome
+    %div= 'Devices'
+  = link_to orders_path, class: (@section == 'orders' ? 'active' : '') do
+    %i filter
+    %div= 'Closed Orders'
+  = link_to orders_open_url, class: (@section == 'orders' ? 'active' : '') do
+    %i filter
+    %div= 'Open Orders'
+  - if current_user.present?
+    -# = link_to settings_path, class: (@section == 'settings' ? 'active' : '') do
+    -#   %i settings
+    -#   %div= t('settings.title')
+  - else
+    = link_to session_path(:user), class: (@section == 'login' ? 'active' : ''), style: 'margin-top: auto;' do
+      %i input
+      %div= t('login')
+  .modal.large.left.no-scroll
+  .modal.bottom.medium
