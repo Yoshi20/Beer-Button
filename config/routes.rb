@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   resources :devices
 
-  resources :orders, only: [:index, :show, :update, :destroy]
-  get 'orders_open' => 'orders#index_open'
+  resources :open_orders, only: [:index, :show, :update, :destroy]
+  resources :closed_orders, only: [:index, :show, :update, :destroy]
 
   devise_for :users
 

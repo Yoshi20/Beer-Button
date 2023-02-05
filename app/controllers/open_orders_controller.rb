@@ -1,17 +1,11 @@
-class OrdersController < ApplicationController
+class OpenOrdersController < ApplicationController
   before_action :set_order, only: [:show, :update, :destroy]
-  before_action { @section = 'orders' }
+  before_action { @section = 'open_orders' }
 
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.closed.paginate(page: params[:page], per_page: Order::MAX_ORDERS_PER_PAGE)
-  end
-
-  # GET /orders_open
-  def index_open
     @orders = Order.open_as_hash_with_counter
-    render "index_open"#blup, layout: "application_open"
   end
 
   # GET /orders/1
@@ -50,10 +44,10 @@ class OrdersController < ApplicationController
             )
           end
         end
-        format.html { redirect_to orders_open_url, notice: t('flash.notice.updating_order') }
+        format.html { redirect_to open_orders_path, notice: t('flash.notice.updating_order') }
         format.json { render json: {order: @order}, status: :ok }
       else
-        format.html { redirect_to orders_open_url, notice: t('flash.alert.updating_order') }
+        format.html { redirect_to open_orders_path, notice: t('flash.alert.updating_order') }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end

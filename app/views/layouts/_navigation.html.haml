@@ -5,16 +5,17 @@
   = link_to home_path, class: (@section == 'home' ? 'active' : '') do
     %i home
     %div= 'Home'
-  = link_to devices_path, class: (@section == 'devices' ? 'active' : '') do
-    %i auto_awesome
-    %div= 'Devices'
-  = link_to orders_path, class: (@section == 'orders' ? 'active' : '') do
-    %i filter
-    %div= 'Closed Orders'
-  = link_to orders_open_url, class: (@section == 'orders' ? 'active' : '') do
+  = link_to open_orders_path, class: (@section == 'open_orders' ? 'active' : '') do
     %i filter
     %div= 'Open Orders'
+  = link_to closed_orders_path, class: (@section == 'closed_orders' ? 'active' : '') do
+    %i filter
+    %div= 'Closed Orders'
   - if current_user.present?
+    - if current_user.admin?
+      = link_to devices_path, class: (@section == 'devices' ? 'active' : '') do
+        %i auto_awesome
+        %div= 'Devices'
     -# = link_to settings_path, class: (@section == 'settings' ? 'active' : '') do
     -#   %i settings
     -#   %div= t('settings.title')
@@ -30,16 +31,17 @@
   = link_to home_path, class: (@section == 'home' ? 'active' : '') do
     %i home
     %div= 'Home'
-  = link_to devices_path, class: (@section == 'devices' ? 'active' : '') do
-    %i auto_awesome
-    %div= 'Devices'
-  = link_to orders_path, class: (@section == 'orders' ? 'active' : '') do
-    %i filter
-    %div= 'Closed Orders'
-  = link_to orders_open_url, class: (@section == 'orders' ? 'active' : '') do
+  = link_to open_orders_path, class: (@section == 'open_orders' ? 'active' : '') do
     %i filter
     %div= 'Open Orders'
+  = link_to closed_orders_path, class: (@section == 'closed_orders' ? 'active' : '') do
+    %i filter
+    %div= 'Closed Orders'
   - if current_user.present?
+    - if current_user.admin?
+      = link_to devices_path, class: (@section == 'devices' ? 'active' : '') do
+        %i auto_awesome
+        %div= 'Devices'
     -# = link_to settings_path, class: (@section == 'settings' ? 'active' : '') do
     -#   %i settings
     -#   %div= t('settings.title')
