@@ -16,9 +16,20 @@
       = link_to devices_path, class: (@section == 'devices' ? 'active' : '') do
         %i auto_awesome
         %div= 'Devices'
-    -# = link_to settings_path, class: (@section == 'settings' ? 'active' : '') do
-    -#   %i settings
-    -#   %div= t('settings.title')
+    = link_to edit_user_registration_path, class: (@section == 'users' ? 'active' : '') do
+      %i settings
+      %div= 'Account'
+    = link_to '#', id: 'log_out_link' do
+      %i home
+      %div= t('navigation.account.log_out')
+    = form_with url: destroy_user_session_path, id: "log_out_form", method: :delete
+    :javascript
+      document.addEventListener("turbo:load", function (e) {
+        document.getElementById("log_out_link").addEventListener("click", function(e) {
+          e.preventDefault();
+          document.getElementById("log_out_form").closest('form').submit()
+        });
+      });
   - else
     = link_to session_path(:user), class: (@section == 'login' ? 'active' : ''), style: 'margin-top: auto;' do
       %i input
@@ -42,9 +53,20 @@
       = link_to devices_path, class: (@section == 'devices' ? 'active' : '') do
         %i auto_awesome
         %div= 'Devices'
-    -# = link_to settings_path, class: (@section == 'settings' ? 'active' : '') do
-    -#   %i settings
-    -#   %div= t('settings.title')
+    = link_to edit_user_registration_path, class: (@section == 'users' ? 'active' : '') do
+      %i settings
+      %div= 'Account'
+    = link_to '#', id: 'log_out_link' do
+      %i home
+      %div= t('navigation.account.log_out')
+    = form_with url: destroy_user_session_path, id: "log_out_form", method: :delete
+    :javascript
+      document.addEventListener("turbo:load", function (e) {
+        document.getElementById("log_out_link").addEventListener("click", function(e) {
+          e.preventDefault();
+          document.getElementById("log_out_form").closest('form').submit()
+        });
+      });
   - else
     = link_to session_path(:user), class: (@section == 'login' ? 'active' : ''), style: 'margin-top: auto;' do
       %i input

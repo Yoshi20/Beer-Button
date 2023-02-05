@@ -6,6 +6,7 @@ class OpenOrdersController < ApplicationController
   # GET /orders.json
   def index
     @orders = Order.open_as_hash_with_counter
+    render "index", layout: "application_fullscreen"
   end
 
   # GET /orders/1
