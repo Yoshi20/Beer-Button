@@ -1,9 +1,9 @@
-.row
-  .col
+.grid
+  .s12
     %h1.page-title= t('orders.closed.title')
 
-.row
-  .col
+.grid
+  .s12
     %p= "Total orders count = #{@orders.count}"
 
 .order-list
@@ -17,10 +17,11 @@
         %th.text-center= t('activerecord.attributes.order.acknowledged_by')
         %th.text-center= t('activerecord.attributes.order.acknowledged_at')
         %th.text-center= 'Minutes open'
+        %th Actions
 
     %tbody.order-list-body
       - @orders.each do |order|
-        %tr{'data-id': order.id, 'data-component'=>'order', style: "background-color: #{order.new? ? 'aqua' : ''};"}
+        %tr{'data-id': order.id, 'data-component'=>'order', style: "background-color: #{order.new? ? 'aqua' : ''}; color: #{order.new? ? 'black' : ''};"}
           %td= order.title
           %td= order.text
           %td.hidden= order.data
@@ -29,22 +30,21 @@
           -#     .material-icons= 'done'
           %td.text-center= order.acknowledged_by
           - if order.acknowledged_at.present?
-            %td.text-center= order.acknowledged_at.localtime.to_s(:custom_datetime)
+            %td.text-center= order.acknowledged_at.localtime.to_fs(:custom_datetime)
             %td.text-center= (order.acknowledged_at.to_i - order.created_at.to_i)/60
           - else
             %td.text-center
             %td.text-center
-
           %td.admin-list-actions
             .admin-list-actions__link
-              = form_for order, method: :delete, role: 'form', class:'form' do |f|
-                = button_tag(type: "submit", onclick: "return confirm('Are you sure?')", class:'btn btn-sstm btn-square') do
-                  %span.material-icons.admin-actions__link__icon= 'delete'
+              = link_to closed_order_path(order), data: { turbo_method: :delete } do
+                = button_tag class: 'small square', style:'margin: 0 0 0 5px;' do
+                  %i.material-icons.admin-actions__link__icon= 'delete'
 
   .order-list-footer
     = render 'paginator', orders: @orders
 
   .admin-actions
     .admin-actions__link
-      = link_to closed_orders_path, class:'btn btn-ghost btn-square' do
-        %span.material-icons.admin-actions__link__icon= 'refresh'
+      = button_to closed_orders_path, class:'border small square', method: :get do
+        %i.material-icons.admin-actions__link__icon= 'refresh'

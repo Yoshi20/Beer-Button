@@ -1,0 +1,28 @@
+%h1.page-title
+  = t('login')
+
+.grid.login
+  .s12
+    = form_for(resource, as: resource_name, url: session_path(resource_name), html: { "data-turbo": "false" }) do |f|
+      = render "devise/shared/error_messages", resource: resource
+
+      .field.label.border
+        = f.email_field :email, autocomplete: "email", autofocus: 'true'
+        = f.label :email
+
+      .field.label.border
+        = f.password_field :password, autocomplete: "new-password"
+        = f.label :password
+
+      .field
+        .grid
+          .s12.center-align
+            %button.small-elevate.s12{type: 'submit'}
+              %i input
+              %span= t('log_in')
+
+        .grid
+          .s6.center-align
+            = link_to t('sign_up'), new_user_registration_path
+          .s6.center-align
+            = link_to t('devise.sessions.forgot_pw'), new_password_path(resource_name)

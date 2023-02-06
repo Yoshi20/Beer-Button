@@ -28,4 +28,8 @@
 @import "./global";
 
 // modules
+@import "./_modules/administrator";
+@import "./_modules/devices";
 @import "./_modules/home";
+@import "./_modules/orders";
+@import "./_modules/table";

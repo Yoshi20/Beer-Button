@@ -13,7 +13,7 @@ class Order < ApplicationRecord
   def acknowledge(user)
     self.acknowledged = true
     self.acknowledged_at = Time.now
-    self.acknowledged_by = user.username
+    self.acknowledged_by = user.email
   end
 
   def self.open_as_hash_with_counter

@@ -1,6 +1,15 @@
-= action_cable_meta_tag
+.grid
+  .s12
+    %h1.page-title= t('orders.open.title')
+
+.grid
+  .s12
+    %p= "Total orders count = #{@orders.count}"
+
 .order-list
   %table.table.table-hover.table-dark{style: 'margin-bottom: 0; background-color: #20282e;'}
     %tbody.order-list-body#orders
       - @orders.each do |order|
         = render partial: 'single_order', locals: {order: order}
+
+= action_cable_meta_tag

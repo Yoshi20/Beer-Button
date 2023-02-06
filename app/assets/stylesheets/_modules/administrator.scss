@@ -1,0 +1,10 @@
+.admin-actions {
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  .admin-actions__link {
+    margin-top: -0.5rem;
+    margin-right: 0.5rem;
+  }
+}

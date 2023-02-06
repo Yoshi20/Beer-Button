@@ -1,5 +1,5 @@
 - if orders.any? && orders.try(:total_pages).present?
-  %nav
+  %nav.center-align
     %ul.pagination
       %li= hidden_field_tag 'total_pages', orders.total_pages
       %li.left-arrow

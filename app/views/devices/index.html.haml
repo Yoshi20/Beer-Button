@@ -1,9 +1,9 @@
-.row
-  .col
+.grid
+  .s12
     %h1.page-title= t('devices.title')
 
-.row
-  .col
+.grid
+  .s12
     %p= "Total devices count = #{Device.all.count}"
 
 .device-list
@@ -19,6 +19,7 @@
         %th= t('activerecord.attributes.device.battery')
         %th= t('activerecord.attributes.device.last_time_seen')
         %th Created at
+        %th Actions
 
     %tbody.device-list-body.with-show
       - @devices.each do |device|
@@ -30,22 +31,23 @@
           %td= device.hw_version
           %td= device.fw_version
           %td= device.battery
-          %td= device.last_time_seen
-          %td= device.created_at.localtime.to_s(:custom_datetime)
-
-          %td.admin-list-actions
+          %td.center-align= device.last_time_seen.localtime.to_fs(:custom_datetime) if device.last_time_seen.present?
+          %td.center-align= device.created_at.localtime.to_fs(:custom_datetime)
+          %td.admin-list-actions{style: 'display: flex;'}
             .admin-list-actions__link
-              = link_to device_path(device), class:'btn btn-sstm btn-square' do
-                %span.material-icons.admin-actions__link__icon= 'visibility'
+              = link_to device, data: { turbo_method: :get } do
+                = button_tag class: 'small square', style:'margin: 0 0 0 5px;' do
+                  %i.material-icons.admin-actions__link__icon= 'visibility'
             .admin-list-actions__link
-              = link_to edit_device_path(device), class: 'btn btn-sstm btn-square' do
-                %span.material-icons.admin-actions__link__icon= 'edit'
+              = link_to edit_device_path(device), data: { turbo_method: :get } do
+                = button_tag class: 'small square', style:'margin: 0 0 0 5px;' do
+                  %i.material-icons.admin-actions__link__icon= 'edit'
             .admin-list-actions__link
-              = form_for device, method: :delete, role: 'form', class:'form' do |f|
-                = button_tag(type: "submit", onclick: "return confirm('Are you sure?')", class:'btn btn-sstm btn-square') do
-                  %span.material-icons.admin-actions__link__icon= 'delete'
+              = link_to device, data: { turbo_method: :delete } do
+                = button_tag class: 'small square', style:'margin: 0 0 0 5px;' do
+                  %i.material-icons.admin-actions__link__icon= 'delete'
 
   .admin-actions
     .admin-actions__link
-      = link_to new_device_path, class:'btn btn-ghost btn-square' do
-        %span.material-icons.admin-actions__link__icon= 'add'
+      = button_to new_device_path, class:'border small square', method: :get do
+        %i.material-icons.admin-actions__link__icon= 'add'

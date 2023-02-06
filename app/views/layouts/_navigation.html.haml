@@ -1,35 +1,27 @@
 -# pc & tablet view:
-%nav.left.m.l
-  -# = link_to root_path, class: (@section == 'welcome' ? 'active' : '') do
-  -#   = image_tag 'profile_pic.webp', class: 'profile_pic circle small-margin', alt: 'BeerButton profile picture'
-  = link_to home_path, class: (@section == 'home' ? 'active' : '') do
-    %i home
-    %div= 'Home'
-  = link_to open_orders_path, class: (@section == 'open_orders' ? 'active' : '') do
-    %i filter
-    %div= 'Open Orders'
-  = link_to closed_orders_path, class: (@section == 'closed_orders' ? 'active' : '') do
-    %i filter
-    %div= 'Closed Orders'
+%nav.left.l
+  = link_to root_path, class: (@section == 'home' ? 'active' : '') do
+    = image_tag 'beer_1.png', class: 'circle', alt: 'BeerButton profile picture'
+  -# = link_to home_path, class: (@section == 'home' ? 'active' : '') do
+  -#   %i home
+  -#   %div= 'Home'
   - if current_user.present?
+    = link_to open_orders_path, class: (@section == 'open_orders' ? 'active' : '') do
+      %i shopping_cart
+      %div= 'Open Orders'
+    = link_to closed_orders_path, class: (@section == 'closed_orders' ? 'active' : '') do
+      %i remove_shopping_cart
+      %div= 'Closed Orders'
     - if current_user.admin?
       = link_to devices_path, class: (@section == 'devices' ? 'active' : '') do
-        %i auto_awesome
+        %i devices_other
         %div= 'Devices'
-    = link_to edit_user_registration_path, class: (@section == 'users' ? 'active' : '') do
-      %i settings
+    = link_to edit_user_registration_path, class: (@section == 'account' ? 'active' : '') do
+      %i account_circle
       %div= 'Account'
-    = link_to '#', id: 'log_out_link' do
-      %i home
+    = link_to '#', data: { ui: "#log-out-modal" } do
+      %i output
       %div= t('navigation.account.log_out')
-    = form_with url: destroy_user_session_path, id: "log_out_form", method: :delete
-    :javascript
-      document.addEventListener("turbo:load", function (e) {
-        document.getElementById("log_out_link").addEventListener("click", function(e) {
-          e.preventDefault();
-          document.getElementById("log_out_form").closest('form').submit()
-        });
-      });
   - else
     = link_to session_path(:user), class: (@section == 'login' ? 'active' : ''), style: 'margin-top: auto;' do
       %i input
@@ -38,38 +30,39 @@
   .modal.left
 
 -# mobile view:
-%nav.bottom.s
+%nav.bottom.s.m
   = link_to home_path, class: (@section == 'home' ? 'active' : '') do
     %i home
     %div= 'Home'
-  = link_to open_orders_path, class: (@section == 'open_orders' ? 'active' : '') do
-    %i filter
-    %div= 'Open Orders'
-  = link_to closed_orders_path, class: (@section == 'closed_orders' ? 'active' : '') do
-    %i filter
-    %div= 'Closed Orders'
   - if current_user.present?
+    = link_to open_orders_path, class: (@section == 'open_orders' ? 'active' : '') do
+      %i shopping_cart
+      %div= 'Open Orders'
+    = link_to closed_orders_path, class: (@section == 'closed_orders' ? 'active' : '') do
+      %i remove_shopping_cart
+      %div= 'Closed Orders'
     - if current_user.admin?
       = link_to devices_path, class: (@section == 'devices' ? 'active' : '') do
-        %i auto_awesome
+        %i devices_other
         %div= 'Devices'
-    = link_to edit_user_registration_path, class: (@section == 'users' ? 'active' : '') do
-      %i settings
+    = link_to edit_user_registration_path, class: (@section == 'account' ? 'active' : '') do
+      %i account_circle
       %div= 'Account'
-    = link_to '#', id: 'log_out_link' do
-      %i home
+    = link_to '#', data: { ui: "#log-out-modal" } do
+      %i output
       %div= t('navigation.account.log_out')
-    = form_with url: destroy_user_session_path, id: "log_out_form", method: :delete
-    :javascript
-      document.addEventListener("turbo:load", function (e) {
-        document.getElementById("log_out_link").addEventListener("click", function(e) {
-          e.preventDefault();
-          document.getElementById("log_out_form").closest('form').submit()
-        });
-      });
   - else
     = link_to session_path(:user), class: (@section == 'login' ? 'active' : ''), style: 'margin-top: auto;' do
       %i input
       %div= t('login')
   .modal.large.left.no-scroll
   .modal.bottom.medium
+
+-# Log out modal
+#log-out-modal.modal
+  %h5 Are you sure you want to log out?
+  -# %div Some other text here
+  %nav.middle-align.center-align
+    %button.border{"data-ui" => "#log-out-modal"} Cancel
+    = link_to destroy_user_session_path, data: { turbo_method: :delete, ui: "#log-out-modal" } do
+      = button_tag "Confirm"

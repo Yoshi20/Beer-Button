@@ -1,4 +1,4 @@
-= form_for @device, role: 'form', class:'form' do |f|
+= form_for @device, role: 'form', class:'form', html: { "data-turbo": "false" } do |f|
 
   - if @device.errors.any?
     #error_explanation
@@ -29,6 +29,11 @@
     = f.label :fw_version
     = f.text_field :fw_version, class: 'form-control'
 
-  .actions.form-group
+  .field.form-group
     = hidden_field_tag(:user_id, current_user.id)
-    = f.submit class:'btn btn-ghost'
+    %button.small-elevate.s12{type: 'submit'}
+      %i input
+      - if @device.new_record?
+        %span= 'Create Device'
+      - else
+        %span= 'Update Device'

@@ -6,7 +6,6 @@ class OpenOrdersController < ApplicationController
   # GET /orders.json
   def index
     @orders = Order.open_as_hash_with_counter
-    render "index", layout: "application_fullscreen"
   end
 
   # GET /orders/1
@@ -38,12 +37,12 @@ class OpenOrdersController < ApplicationController
           end
           open_order_ctr = Order.open.count
           ActionCable.server.broadcast('OrdersChannel', @order.attributes.except("data")) # broadcast acknowledged order
-          WifiDisplay.all.each do |disp|
-            ActionCable.server.broadcast(
-              disp.name,
-              { open_order_ctr: open_order_ctr }
-            )
-          end
+          # WifiDisplay.all.each do |disp|
+          #   ActionCable.server.broadcast(
+          #     disp.name,
+          #     { open_order_ctr: open_order_ctr }
+          #   )
+          # end
         end
         format.html { redirect_to open_orders_path, notice: t('flash.notice.updating_order') }
         format.json { render json: {order: @order}, status: :ok }
@@ -59,10 +58,10 @@ class OpenOrdersController < ApplicationController
   def destroy
     respond_to do |format|
       if @order.destroy
-        format.html { redirect_to orders_url, notice: t('flash.notice.deleting_order') }
+        format.html { redirect_to open_orders_path, notice: t('flash.notice.deleting_order') }
         format.json { head :no_content }
       else
-        format.html { redirect_to orders_url, notice: t('flash.alert.deleting_order') }
+        format.html { redirect_to open_orders_path, notice: t('flash.alert.deleting_order') }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
