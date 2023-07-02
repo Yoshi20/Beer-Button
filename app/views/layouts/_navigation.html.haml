@@ -16,16 +16,13 @@
       = link_to devices_path, class: (@section == 'devices' ? 'active' : '') do
         %i devices_other
         %div= 'Devices'
-    = link_to edit_user_registration_path, class: (@section == 'account' ? 'active' : '') do
-      %i account_circle
-      %div= 'Account'
-    = link_to '#', data: { ui: "#log-out-modal" } do
-      %i output
-      %div= t('navigation.account.log_out')
   - else
     = link_to session_path(:user), class: (@section == 'login' ? 'active' : ''), style: 'margin-top: auto;' do
       %i input
       %div= t('login')
+    = link_to new_user_registration_path, class: (@section == 'sign_up' ? 'active' : ''), style: 'margin-top: auto;' do
+      %i person_add
+      %div= t('sign_up')
   .modal.large.left.no-scroll
   .modal.left
 
@@ -45,24 +42,51 @@
       = link_to devices_path, class: (@section == 'devices' ? 'active' : '') do
         %i devices_other
         %div= 'Devices'
-    = link_to edit_user_registration_path, class: (@section == 'account' ? 'active' : '') do
-      %i account_circle
-      %div= 'Account'
-    = link_to '#', data: { ui: "#log-out-modal" } do
-      %i output
-      %div= t('navigation.account.log_out')
   - else
     = link_to session_path(:user), class: (@section == 'login' ? 'active' : ''), style: 'margin-top: auto;' do
       %i input
       %div= t('login')
+    = link_to new_user_registration_path, class: (@section == 'sign_up' ? 'active' : ''), style: 'margin-top: auto;' do
+      %i person_add
+      %div= t('sign_up')
   .modal.large.left.no-scroll
   .modal.bottom.medium
 
--# Log out modal
-#log-out-modal.modal
-  %h5 Are you sure you want to log out?
-  -# %div Some other text here
-  %nav.middle-align.center-align
-    %button.border{"data-ui" => "#log-out-modal"} Cancel
-    = link_to destroy_user_session_path, data: { turbo_method: :delete, ui: "#log-out-modal" } do
-      = button_tag "Confirm"
+- if current_user.present?
+  -# Log out modal
+  #log-out-modal.modal
+    %h5 Are you sure you want to log out?
+    -# %div Some other text here
+    %nav.middle-align.center-align
+      %button.border{"data-ui" => "#log-out-modal"} Cancel
+      = link_to destroy_user_session_path, data: { turbo_method: :delete, ui: "#log-out-modal" } do
+        = button_tag "Confirm"
+- else
+  -# Log in modal
+  #log-in-modal.modal.top
+    %nav
+      %button.circle.transparent{"data-ui": "#log-in-modal", style: 'position: absolute; right: 0; top: 0;'}
+        %i close
+    %h5.center-align= t('login')
+    -# %div Some other text here
+    %div.center-align{style: 'padding: 0 1rem;'}
+      -# = form_for(resource, as: resource_name, url: session_path(resource_name), html: { "data-turbo": "false" }) do |f|
+      -# = form_tag session_path(:user), html: { "data-turbo": "false" } do
+      = form_for(User.new, as: "user", url: session_path(:user), html: { "data-turbo": "false" }) do |f|
+        .field.label.border
+          = f.email_field :email, autocomplete: "email", autofocus: 'true'
+          = f.label :email
+        .field.label.border
+          = f.password_field :password, autocomplete: "new-password"
+          = f.label :password
+        .field
+          .grid
+            .s12.center-align
+              %button.small-elevate{type: 'submit'}
+                %i input
+                %span= t('log_in')
+          .grid
+            .s6.center-align
+              = link_to t('sign_up'), new_user_registration_path
+            .s6.center-align
+              = link_to t('devise.sessions.forgot_pw'), new_password_path(:user)

@@ -1,0 +1,40 @@
+%header
+  %nav
+    %h5.page-title.max.center-align= @page_title
+    %button.circle.transparent{data: {ui: '#burger-dropdown'}}
+      %i menu
+      .dropdown.left.no-wrap#burger-dropdown
+        - if current_user.present?
+          -# - if current_user.super_admin?
+          -#   = link_to customers_path, class: (@section == 'customers' ? 'active row' : 'row') do
+          -#     %i domain
+          -#     .max
+          -#       %div= t('customers.title')
+          -#       %label (Super Admin)
+          -#   = link_to email_trackers_path, class: (@section == 'email_trackers' ? 'active row' : 'row') do
+          -#     %i mail
+          -#     .max
+          -#       %div= t('email_trackers.title')
+          -#       %label (Super Admin)
+          = link_to edit_user_registration_path, class: (@section == 'account' ? 'active row' : 'row') do
+            %i account_circle
+            %div= 'Account'
+          = link_to 'javascript:;', data: { ui: "#log-out-modal" }, class: 'row' do
+            %i output
+            %div= t('log_out')
+        - else
+          = link_to 'javascript:;', data: { ui: "#log-in-modal" }, class: 'row' do
+            %i input
+            %div= t('login')
+          = link_to new_user_registration_path, class: 'row' do
+            %i person_add
+            %div= t('sign_up')
+
+        -# .grid.mt-0
+        -#   .s12
+        -#     .language-selection.center-align{style: 'padding: 0.75rem 1rem; padding-top: 0; border-radius: 0;'}
+        -#       %p{style: 'margin-top: 5px; margin-bottom: 0;'}= t('activerecord.attributes.customer.language')
+        -#       = link_to image_tag("flags/united-kingdom.svg", width: '20px', height: '20px', alt: 'united-kingdom flag icon', class: 'language_flag', style: "border-bottom: #{cookies[:locale] == 'en' ? '1px solid white' : ''};"), url_for(locale: 'en'), "data-turbolinks": "false"
+        -#       = link_to image_tag("flags/germany.svg", width: '20px', height: '20px', alt: 'germany flag icon', class: 'language_flag', style: "border-bottom: #{cookies[:locale] == 'de' ? '1px solid white' : ''};"), url_for(locale: 'de'), "data-turbolinks": "false"
+        -#   .s12.center-align.hidden
+        -#     = link_to image_tag("day-and-night.png", width: '20px', height: '20px', alt: 'day-and-night icon', alt: 'day-and-night icon', class: 'language_flag', style: "margin-bottom: 1rem; margin-top: -1rem;"), url_for(color_theme: "#{cookies[:color_theme] == 'dark' ? 'light' : 'dark'}"), "data-turbolinks": "false"
