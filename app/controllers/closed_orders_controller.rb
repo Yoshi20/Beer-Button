@@ -11,13 +11,7 @@ class ClosedOrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
-    order = {}
-    Order.open_as_hash_with_counter.each do |o|
-      if o[:title] == @order.title
-        order = o
-        break
-      end
-    end
+    order = @order.open_as_hash_with_counter
     respond_to do |format|
       format.js {render partial: 'single_order', locals: {order: order}, layout: false}
     end

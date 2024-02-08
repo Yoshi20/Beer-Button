@@ -8,11 +8,14 @@
     -#blup = display_meta_tags(default_meta_tags)
     %meta{charset: "utf-8"}
     %meta{content: "width=device-width,initial-scale=1", name: "viewport"}
+    -#blup %meta{name: "turbo-refresh-method" content: "morph"}
+    -#blup %meta{name: "turbo-refresh-scroll" content: "preserve"}
     = favicon_link_tag 'favicon.png'
     = csrf_meta_tags
     = csp_meta_tag
     =#blup render '/layouts/google_analytics'
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
+    =#blup %script{:src => "https://js.pusher.com/beams/1.0/push-notifications-cdn.js"}
     = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
 
   %body.dark

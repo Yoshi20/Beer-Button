@@ -4,6 +4,8 @@ class Order < ApplicationRecord
   scope :open, -> { where(acknowledged: false) }
   scope :closed, -> { where(acknowledged: true).order(acknowledged_at: :desc) }
 
+  after_create_commit :broadcast_new_order
+
   MAX_ORDERS_PER_PAGE = 100
 
   def new?
@@ -42,6 +44,29 @@ class Order < ApplicationRecord
       created_at: self.created_at,
       count: 1,
     }
+  end
+
+  def open_as_hash_with_counter
+    open_order_with_counter = {}
+    Order.open_as_hash_with_counter.each do |o|
+      if o[:title] == self.title
+        open_order_with_counter = o
+        break
+      end
+    end
+    open_order_with_counter
+  end
+
+private
+
+  def broadcast_new_order
+    order = self.open_as_hash_with_counter
+    if order[:count] > 1
+      broadcast_replace_to 'open_orders', target: "order-#{order[:id]}", partial: 'open_orders/single_order', locals: { order: order }
+    else
+      broadcast_append_to 'open_orders', partial: 'open_orders/single_order', locals: { order: order }
+      broadcast_update_to 'open_orders', target: "open-orders-count", html: "#{Order.open_as_hash_with_counter.count}"
+    end
   end
 
 end
