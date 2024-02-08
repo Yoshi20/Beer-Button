@@ -3,7 +3,7 @@
     %h5.page-title.max.center-align= @page_title
     %button.circle.transparent{data: {ui: '#burger-dropdown'}}
       %i menu
-      .dropdown.left.no-wrap#burger-dropdown
+      %menu.left.no-wrap#burger-dropdown
         - if current_user.present?
           -# - if current_user.super_admin?
           -#   = link_to customers_path, class: (@section == 'customers' ? 'active row' : 'row') do

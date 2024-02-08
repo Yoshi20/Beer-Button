@@ -109,6 +109,11 @@
   version "7.2.4"
   resolved "https://registry.npmjs.org/@hotwired/turbo/-/turbo-7.2.4.tgz"
 
+"@material/material-color-utilities@^0.2.7":
+  version "0.2.7"
+  resolved "https://registry.yarnpkg.com/@material/material-color-utilities/-/material-color-utilities-0.2.7.tgz#ff2a638d2db295a796fa02671410df4f4f97c33e"
+  integrity sha512-0FCeqG6WvK4/Cc06F/xXMd/pv4FeisI0c1tUpBbfhA2n9Y8eZEv4Karjbmf2ZqQCPUWMrGp8A571tCjizxoTiQ==
+
 "@rails/actioncable@^7.0":
   version "7.0.4"
   resolved "https://registry.npmjs.org/@rails/actioncable/-/actioncable-7.0.4.tgz"
@@ -200,13 +205,12 @@ anymatch@~3.1.2:
     normalize-path "^3.0.0"
     picomatch "^2.0.4"
 
-beercss@^3.0.8:
-  version "3.0.8"
-  resolved "https://registry.npmjs.org/beercss/-/beercss-3.0.8.tgz"
+beercss@3.3.5:
+  version "3.3.5"
+  resolved "https://registry.yarnpkg.com/beercss/-/beercss-3.3.5.tgz#6c7be6ae0973b5e323d6e8b81ea1c1d15181107c"
+  integrity sha512-Q2mPTZER6hUq9mzaL103kUMs2IUIC43/k8qJj9s51/EjgyWYWKqFezXr1GzmK5UO8p4jbfuHLS/hSz3cTX+FTw==
   dependencies:
-    material-dynamic-colors "^0.1.5"
-    sass "^1.49.9"
-    uuid "^8.3.2"
+    material-dynamic-colors "^1.0.1"
     vue "^3.2.31"
 
 binary-extensions@^2.0.0:
@@ -314,9 +318,12 @@ magic-string@^0.25.7:
   dependencies:
     sourcemap-codec "^1.4.8"
 
-material-dynamic-colors@^0.1.5:
-  version "0.1.5"
-  resolved "https://registry.npmjs.org/material-dynamic-colors/-/material-dynamic-colors-0.1.5.tgz"
+material-dynamic-colors@^1.0.1:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/material-dynamic-colors/-/material-dynamic-colors-1.1.0.tgz#d07f7705af9f254e7612ff99b7000578c0bda443"
+  integrity sha512-Uez8I/VykAc03u/07AJ7OOC59+9shllbEvnMDZdYcNI4qzhxPGJwAiOang2CudgkWx+lp0QT2Oc8DxxX8RHJkQ==
+  dependencies:
+    "@material/material-color-utilities" "^0.2.7"
 
 nanoid@^3.3.7:
   version "3.3.7"
@@ -348,7 +355,7 @@ readdirp@~3.6.0:
   dependencies:
     picomatch "^2.2.1"
 
-sass@^1.49.9, sass@^1.57.1:
+sass@^1.57.1:
   version "1.57.1"
   resolved "https://registry.npmjs.org/sass/-/sass-1.57.1.tgz"
   dependencies:
@@ -373,10 +380,6 @@ to-regex-range@^5.0.1:
   resolved "https://registry.npmjs.org/to-regex-range/-/to-regex-range-5.0.1.tgz"
   dependencies:
     is-number "^7.0.0"
-
-uuid@^8.3.2:
-  version "8.3.2"
-  resolved "https://registry.npmjs.org/uuid/-/uuid-8.3.2.tgz"
 
 vue@^3.2.31:
   version "3.2.45"

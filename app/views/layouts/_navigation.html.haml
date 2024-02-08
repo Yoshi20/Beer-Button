@@ -17,14 +17,14 @@
         %i devices_other
         %div= 'Devices'
   - else
-    = link_to session_path(:user), class: (@section == 'login' ? 'active' : ''), style: 'margin-top: auto;' do
+    = link_to session_path(:user), class: (@section == 'login' ? 'active' : '') do
       %i input
       %div= t('login')
-    = link_to new_user_registration_path, class: (@section == 'sign_up' ? 'active' : ''), style: 'margin-top: auto;' do
+    = link_to new_user_registration_path, class: (@section == 'sign_up' ? 'active' : '') do
       %i person_add
       %div= t('sign_up')
-  .modal.large.left.no-scroll
-  .modal.left
+  %dialog.large.left.no-scroll
+  %dialog.left
 
 -# mobile view:
 %nav.bottom.s.m
@@ -43,18 +43,18 @@
         %i devices_other
         %div= 'Devices'
   - else
-    = link_to session_path(:user), class: (@section == 'login' ? 'active' : ''), style: 'margin-top: auto;' do
+    = link_to session_path(:user), class: (@section == 'login' ? 'active' : '') do
       %i input
       %div= t('login')
-    = link_to new_user_registration_path, class: (@section == 'sign_up' ? 'active' : ''), style: 'margin-top: auto;' do
+    = link_to new_user_registration_path, class: (@section == 'sign_up' ? 'active' : '') do
       %i person_add
       %div= t('sign_up')
-  .modal.large.left.no-scroll
-  .modal.bottom.medium
+  %dialog.large.left.no-scroll
+  %dialog.bottom.medium
 
 - if current_user.present?
   -# Log out modal
-  #log-out-modal.modal
+  %dialog#log-out-modal
     %h5 Are you sure you want to log out?
     -# %div Some other text here
     %nav.middle-align.center-align
@@ -63,7 +63,7 @@
         = button_tag "Confirm"
 - else
   -# Log in modal
-  #log-in-modal.modal.top
+  %dialog#log-in-modal.top
     %nav
       %button.circle.transparent{"data-ui": "#log-in-modal", style: 'position: absolute; right: 0; top: 0;'}
         %i close
