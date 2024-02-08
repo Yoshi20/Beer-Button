@@ -9,14 +9,8 @@
       %span{id: 'open-orders-count'}= @orders.count
 
 
-.order-list{data: { controller: "orders" }}
+.order-list
   %table.table.table-hover.table-dark{style: 'margin-bottom: 0; background-color: #20282e;'}
     %tbody.order-list-body#orders
       - @orders.each do |order|
         = render partial: 'single_order', locals: {order: order}
-
-
-
-  %div{data: { action: "click->orders#close" }, style: "cursor: context-menu;"}
-    = 'blup'
--#blup = action_cable_meta_tag
