@@ -4,16 +4,16 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.3.0"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.0.4", ">= 7.0.4.1"
+gem "rails", "~> 7.1.3"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
 # Use postgresql as the database for Active Record
-gem "pg", "~> 1.1"
+gem "pg", "~> 1.5"
 
 # Use the Puma web server [https://github.com/puma/puma]
-gem "puma", ">= 6.0.0"
+gem "puma", "~> 6.4.2"
 
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem "jsbundling-rails"
@@ -82,9 +82,6 @@ gem 'devise' # (flexible authentication solution)
 # See https://github.com/tigrish/devise-i18n
 gem 'devise-i18n' # (devise locale data collection)
 
-# # See https://github.com/smartinez87/exception_notification
-# gem 'exception_notification'
-#
 # # See https://github.com/laserlemon/figaro
 # gem 'figaro' # (ENV file: config/application.yml)
 #
@@ -103,7 +100,20 @@ gem 'rails-i18n', '~> 7.0.0' # (rails locale data collection)
 # See https://github.com/mislav/will_paginate
 gem 'will_paginate'
 
-# group :development do
-#   gem 'better_errors'
-#   gem 'brakeman' # https://github.com/presidentbeef/brakeman
-# end
+group :development do
+  gem 'better_errors'
+  gem 'brakeman' # https://github.com/presidentbeef/brakeman
+  gem 'bullet' # https://github.com/flyerhzm/bullet
+  gem 'rails_best_practices' # Run: rails_best_practices . (https://github.com/flyerhzm/rails_best_practices)
+  gem 'rack-mini-profiler' # https://github.com/MiniProfiler/rack-mini-profiler
+end
+
+group :test do
+  gem 'factory_bot_rails' # https://github.com/thoughtbot/factory_bot
+  gem 'factory_trace' # https://github.com/djezzzl/factory_trace
+end
+
+# See https://github.com/rspec/rspec-rails
+group :development, :test do
+  gem 'rspec-rails', '~> 6.1.1'
+end
