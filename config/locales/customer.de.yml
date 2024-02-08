@@ -1,0 +1,37 @@
+de:
+  activerecord:
+    models:
+      customer:
+        one: "Unternehmen"
+        other: "Unternehmen"
+    attributes:
+      customer:
+        name: "Name"
+        email: "E-Mail"
+        logo_link: "Logo-Link"
+        first_name: "Vorname"
+        last_name: "Nachname"
+        phone_number: "Telefonnummer"
+        address: "Adresse"
+        address2: "Adresszusatz"
+        zip_code: "PLZ"
+        city: "Stadt/Ort"
+        notes: "Anmerkungen"
+        language: "Sprache"
+        how_did_you_find_us: "Wie hast du uns gefunden?"
+        package_variant: "Paketvariante"
+        desired_package_variant: "Gewünschte Paketvariante"
+        paid_at: "Bezahlt am"
+        color_primary: "Primärfarbe"
+        color_surface: "Oberflächenfarbe"
+        website: "Webseite"
+        number_of_members: "Mitgliederzahl"
+        desired_number_of_members: "Gewünschte Mitgliederzahl"
+        test_cards_sent_at: "Test Karten verschickt am"
+  customers:
+    title: "Unternehmen"
+    new: "Neues Unternehmen erstellen"
+    edit: "Unternehmen bearbeiten"
+    prohibited: "verhindern das Speichern dieses Unternehmens:"
+    total_count: "Gesamtzahl der Unternehmen"
+    preferred_language: "Bevorzugte Sprache"

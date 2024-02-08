@@ -8,10 +8,10 @@
   - if current_user.present?
     = link_to open_orders_path, class: (@section == 'open_orders' ? 'active' : '') do
       %i shopping_cart
-      %div= 'Open Orders'
+      %div= t('orders.open.title_short')
     = link_to closed_orders_path, class: (@section == 'closed_orders' ? 'active' : '') do
       %i remove_shopping_cart
-      %div= 'Closed Orders'
+      %div= t('orders.closed.title_short')
     - if current_user.admin?
       = link_to devices_path, class: (@section == 'devices' ? 'active' : '') do
         %i devices_other
@@ -34,10 +34,10 @@
   - if current_user.present?
     = link_to open_orders_path, class: (@section == 'open_orders' ? 'active' : '') do
       %i shopping_cart
-      %div= 'Open Orders'
+      %div= t('orders.open.title_short')
     = link_to closed_orders_path, class: (@section == 'closed_orders' ? 'active' : '') do
       %i remove_shopping_cart
-      %div= 'Closed Orders'
+      %div= t('orders.closed.title_short')
     - if current_user.admin?
       = link_to devices_path, class: (@section == 'devices' ? 'active' : '') do
         %i devices_other
@@ -55,12 +55,12 @@
 - if current_user.present?
   -# Log out modal
   %dialog#log-out-modal
-    %h5 Are you sure you want to log out?
+    %h5.center-align= t('users.logout')
     -# %div Some other text here
     %nav.middle-align.center-align
-      %button.border{"data-ui" => "#log-out-modal"} Cancel
+      %button.small-round.border{"data-ui" => "#log-out-modal"}= t('cancel')
       = link_to destroy_user_session_path, data: { turbo_method: :delete, ui: "#log-out-modal" } do
-        = button_tag "Confirm"
+        = button_tag t('confirm'), class: 'small-round'
 - else
   -# Log in modal
   %dialog#log-in-modal.top

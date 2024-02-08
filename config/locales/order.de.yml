@@ -1,0 +1,19 @@
+de:
+  activerecord:
+    models:
+      order:
+        one: "Bestellung"
+        other: "Bestellungen"
+    attributes:
+      order:
+        title: "Titel"
+        text: "Text"
+        data: "Daten"
+        acknowledged: "Geschlossen"
+        acknowledged_by: "Geschlossen von"
+        acknowledged_at: "Geschlossen am"
+  devices:
+    title: "Bestellungen"
+    new: "Neue Bestellung"
+    edit: "Bestellung bearbeiten"
+    prohibited: "verhindern das Speichern dieser Bestellung:"

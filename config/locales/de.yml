@@ -1,0 +1,125 @@
+de:
+  hi: "Hallo"
+  login: "Login"
+  password: "Password"
+  log_in: "Log in"
+  log_out: "Abmelden"
+  sign_up: "Registrieren"
+  show: "Anzeigen"
+  create: "Erstellen"
+  update: "Updaten"
+  edit: "Bearbeiten"
+  delete: "Löschen"
+  back: "Zurück"
+  confirm: "Bestätigen"
+  cancel: "Abbrechen"
+
+  flash:
+    notice:
+      updating_user: "Benutzer wurder erfolgreich aktualisiert"
+      deleting_user: "Benutzer wurder erfolgreich gelöscht"
+      creating_device: "Gerät wurder erfolgreich erstellt"
+      updating_device: "Gerät wurder erfolgreich aktualisiert"
+      deleting_device: "Gerät wurder erfolgreich gelöscht"
+      updating_order: "Bestellung wurder erfolgreich aktualisiert"
+      deleting_order: "Bestellung wurder erfolgreich gelöscht"
+    alert:
+      updating_user: "Benutzer konnte nicht aktualisiert werden!"
+      deleting_user: "Benutzer konnte nicht gelöscht werden!"
+      creating_device: "Gerät konnte nicht erstellt werden!"
+      updating_device: "Gerät konnte nicht aktualisiert werden!"
+      deleting_device: "Gerät konnte nicht gelöscht werden!"
+      unauthorized: "Nicht autorisiert! Du musst mehr Rechte haben, um diese Aktion auszuführen"
+      updating_order: "Bestellung konnte nicht aktualisiert werden!"
+      deleting_order: "Bestellung konnte nicht gelöscht werden!"
+      login_failed: "Login fehlgeschlagen! Bitte versuche es erneut"
+
+  navigation:
+    account:
+      account: "Mein Account"
+      admin: "(Administrator)"
+      show_profile: "Profil anzeigen"
+      edit_profile: "Profil bearbeiten"
+      log_out: "Abmelden"
+      log_out_confirm: "Möchtest Du dich wirklich abmelden?"
+
+  devise:
+    confirmations:
+      title: "Bestätigungsanweisungen erneut senden"
+      resend: "Bestätigungsanweisungen erneut senden"
+    mailer:
+      welcome: "Willkommen"
+      confirm: "Sie können die E-Mail-Adresse Ihres Kontos über den folgenden Link bestätigen:"
+      confirm_account: "Bestätigen Sie mein Konto"
+      hello: "Hallo"
+      change_pw_request: "Jemand hat einen Link zum Ändern Ihres Passworts angefordert. Sie können dies über den untenstehenden Link tun"
+      change_my_pw: "Ändere mein Passwort"
+      change_pw_ignore: "Wenn Sie dies nicht angefordert haben, ignorieren Sie bitte diese E-Mail."
+      pw_wont_change: "Ihr Passwort ändert sich erst, wenn Sie auf den Link oben zugreifen und ein neues erstellen."
+      account_locked: "Ihr Konto wurde aufgrund einer übermäßigen Anzahl erfolgloser Anmeldeversuche gesperrt."
+      unlock_account: "Klicken Sie auf den Link unten, um Ihr Konto zu entsperren:"
+      unlock_my_account: "Mein Konto entsperren"
+    passwords:
+      title: "Ändern Sie Ihr Passwort"
+      new_pw: "Neues Passwort"
+      chars_min: "Mindestzeichen"
+      confirm: "Neues Passwort bestätigen"
+      change_my_pw: "Mein Passwort ändern"
+      title_forgot: "Passwort vergessen?"
+      reset_pw: "Bitte senden Sie mir Anweisungen zum Zurücksetzen des Passworts."
+    sessions:
+      forgot_pw: "Passwort vergessen?"
+    share:
+      log_in: "Einloggen"
+      sign_up: "Anmelden"
+      forgot_pw: "Passwort vergessen?"
+      no_conf_inst: "Keine Bestätigungsanweisungen erhalten?"
+      no_unlock_inst: "Keine Anweisungen zum Entsperren erhalten?"
+      log_in_with: "Anmelden mit"
+    unlocks:
+      title: "Anweisungen zum Entsperren erneut senden"
+      resend_unlock_inst: "Anweisungen zum Entsperren erneut senden"
+
+  orders:
+    title: "Bestellungen"
+    open:
+      title: 'Offene Bestellungen'
+      title_short: 'Offen'
+    closed:
+      title: 'Geschlossene Bestellungen'
+      title_short: 'Geschlossen'
+    close: 'Schliessen'
+
+  users:
+    mailer:
+      welcome: "Willkommen bei BeerButton"
+      signed_up: "Sie haben sich erfolgreich angemeldet. Ihr Benutzername ist:"
+    my_account: "Mein Konto"
+    login_username: "Login-Benutzername"
+    email: "Email"
+    mobile_number: "Handynummer"
+    new_password: "Neues Passwort"
+    leave_blank: "(leer lassen, wenn Sie es nicht ändern möchten)"
+    new_password_conf: "Neue Passwortbestätigung"
+    full_name: "Vollständiger Name"
+    first_and_last_name: "(Vor- und Nachname)"
+    current_password: "Aktuelles Passwort"
+    enter_current_password: "(Geben Sie Ihr aktuelles Passwort ein, um die Änderungen zu bestätigen)"
+    delete_my_account: "Mein Konto löschen"
+    unhappy: "Unzufrieden?"
+    delete_account: "Konto löschen"
+    signing_up: "Anmelden"
+    chars_min: "(mindestens %{pw_length} Zeichen)"
+    password_confirmation: "Passwortbestätigung"
+    register: "Registrieren"
+
+  time:
+    formats:
+      custom_datetime_date_and_no_time: "%d %B"
+      custom_datetime_weekday_date_and_year: "%A, %d %B %Y"
+      custom_datetime_with_weekday: "%A, %d %B at %H:%M"
+
+  recaptcha:
+    errors:
+      verification_failed: "reCAPTCHA denkt, dass Sie kein Mensch sind. Bitte versuchen Sie es erneut"
+      recaptcha_unreachable: "reCAPTCHA-Serverfehler. Bitte versuchen Sie es erneut"

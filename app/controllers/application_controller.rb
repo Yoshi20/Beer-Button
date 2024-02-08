@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :prepare_exception_notifier
+  after_action :set_response_language_header
 
 protected
 
@@ -56,6 +57,10 @@ private
       I18n.locale = http_accept_language.compatible_language_from(available_locales)
       cookies.permanent[:locale] = I18n.locale.to_s
     end
+  end
+
+  def set_response_language_header
+    response.headers["Content-Language"] = I18n.locale.to_s
   end
 
   def prepare_exception_notifier

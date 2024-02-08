@@ -28,7 +28,7 @@ module BeerButton
 
     config.time_zone = 'Bern'
 
-    config.i18n.available_locales = %w(en) # blup: only en for now
+    config.i18n.available_locales = %w(en de)
 
   end
 end

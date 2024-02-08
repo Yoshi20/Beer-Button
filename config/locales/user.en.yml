@@ -1,0 +1,40 @@
+en:
+  activerecord:
+    models:
+      user:
+        one: "User"
+        other: "Users"
+    attributes:
+      user:
+        customer_id: "Customer"
+        customer: "Name of your organization"
+        username: "Username"
+        email: "Email"
+        encrypted_password: "Password"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+        is_operator: "Operator"
+        is_manager: "Manager"
+        is_admin: "Admin"
+        is_super_admin: "Super Admin"
+        last_sign_in_at: "Last Log in at"
+        sign_in_count: "Log in counter"
+        created_at: "Created at"
+  users:
+    title: "Users"
+    new: "New user"
+    edit: "Edit user"
+    prohibited: "prohibited this user from being saved:"
+    search: "Search"
+    search_failed: "There were no users found with this search query"
+    new_password: "New password"
+    new_password_confirmation: "New password confirmation"
+    current_password_to_confirm: "Current password to confirm"
+    logout: "Are you sure you want to log out?"
+    total_count: "Total users count"
+    limit_reached:
+      title: "User limit reached!"
+      text: "For more users, a bigger package is required (Contact:"
+    is_operator_description: "Operator can scan cards and subtract or add credits"
+    is_manager_description: "Manager can also manage members and view the history of all past actions"
+    is_admin_description: "Admin can also create member types, credit types and articles as well as manage users and assign rights"

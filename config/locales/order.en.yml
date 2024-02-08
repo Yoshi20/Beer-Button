@@ -1,0 +1,19 @@
+en:
+  activerecord:
+    models:
+      order:
+        one: "Order"
+        other: "Orders"
+    attributes:
+      order:
+        title: "Title"
+        text: "Text"
+        data: "Data"
+        acknowledged: "Acknowledged"
+        acknowledged_by: "Acknowledged by"
+        acknowledged_at: "Acknowledged at"
+  devices:
+    title: "Orders"
+    new: "New order"
+    edit: "Edit order"
+    prohibited: "prohibited this order from being saved:"

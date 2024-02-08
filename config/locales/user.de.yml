@@ -1,0 +1,40 @@
+de:
+  activerecord:
+    models:
+      user:
+        one: "Benutzer"
+        other: "Benutzer"
+    attributes:
+      user:
+        customer_id: "Unternehmen"
+        customer: "Name deiner Organisation"
+        username: "Benutzername"
+        email: "E-Mail"
+        encrypted_password: "Passwort"
+        password: "Passwort"
+        password_confirmation: "Passwort bestätigen"
+        is_operator: "Operator"
+        is_manager: "Manager"
+        is_admin: "Admin"
+        is_super_admin: "Super Admin"
+        last_sign_in_at: "Letzte Anmeldung am"
+        sign_in_count: "Anmeldezähler"
+        created_at: "Erstellt am"
+  users:
+    title: "Benutzer"
+    new: "Neuer Benutzer"
+    edit: "Benutzer bearbeiten"
+    prohibited: "verhindern das Speichern dieses Benutzers:"
+    search: "Suchen"
+    search_failed: "Es wurden keine Benutzer gefunden mit dieser Suchanfrage"
+    new_password: "Neues Passwort"
+    new_password_confirmation: "Neues Passwort bestätigen"
+    current_password_to_confirm: "Aktuelles Passwort zum Bestätigen"
+    logout: "Möchtest Du dich wirklich abmelden?"
+    total_count: "Gesamtzahl der Benutzer"
+    limit_reached:
+      title: "Benutzerlimit erreicht!"
+      text: "Für mehr Benutzer wird ein grösseres Paket benötigt (Kontaktiere:"
+    is_operator_description: "Operator können Karten einlesen und Credits abziehen oder hinzufügen"
+    is_manager_description: "Manager können zusätzlich Member verwalten und den Verlauf aller vergangenen Aktionen einsehen"
+    is_admin_description: "Admin können zusätzlich Mitglieder-Typen, Credit-Typen und Artikel erstellen sowie Benutzer verwalten und Rechte vergeben"

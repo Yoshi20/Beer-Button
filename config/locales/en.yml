@@ -3,6 +3,7 @@ en:
   login: "Login"
   password: "Password"
   log_in: "Log in"
+  log_out: "Log out"
   sign_up: "Sign up"
   show: "Show"
   create: "Create"
@@ -10,7 +11,8 @@ en:
   edit: "Edit"
   delete: "Delete"
   back: "Back"
-  confirm: "Are you sure?"
+  confirm: "Confirm"
+  cancel: "Cancel"
 
   flash:
     notice:

@@ -1,0 +1,37 @@
+en:
+  activerecord:
+    models:
+      customer:
+        one: "Customer"
+        other: "Customers"
+    attributes:
+      customer:
+        name: "Name"
+        email: "Email"
+        logo_link: "Logo link"
+        first_name: "First name"
+        last_name: "Last name"
+        phone_number: "Phone number"
+        address: "Address"
+        address2: "Address supplement"
+        zip_code: "ZIP code"
+        city: "City/Location"
+        notes: "Notes"
+        language: "Language"
+        how_did_you_find_us: "How did you find us?"
+        package_variant: "Package variant"
+        desired_package_variant: "Desired package variant"
+        paid_at: "Paid at"
+        color_primary: "Primary color"
+        color_surface: "Surface color"
+        website: "Website"
+        number_of_members: "Number of members"
+        desired_number_of_members: "Desired number of members"
+        test_cards_sent_at: "Test cards sent at"
+  customers:
+    title: "Customers"
+    new: "Create new customer"
+    edit: "Edit customer"
+    prohibited: "prohibited this customer from being saved:"
+    total_count: "Total customers count"
+    preferred_language: "Preferred language"

@@ -30,11 +30,11 @@
             %i person_add
             %div= t('sign_up')
 
-        -# .grid.mt-0
-        -#   .s12
-        -#     .language-selection.center-align{style: 'padding: 0.75rem 1rem; padding-top: 0; border-radius: 0;'}
-        -#       %p{style: 'margin-top: 5px; margin-bottom: 0;'}= t('activerecord.attributes.customer.language')
-        -#       = link_to image_tag("flags/united-kingdom.svg", width: '20px', height: '20px', alt: 'united-kingdom flag icon', class: 'language_flag', style: "border-bottom: #{cookies[:locale] == 'en' ? '1px solid white' : ''};"), url_for(locale: 'en'), "data-turbolinks": "false"
-        -#       = link_to image_tag("flags/germany.svg", width: '20px', height: '20px', alt: 'germany flag icon', class: 'language_flag', style: "border-bottom: #{cookies[:locale] == 'de' ? '1px solid white' : ''};"), url_for(locale: 'de'), "data-turbolinks": "false"
-        -#   .s12.center-align.hidden
-        -#     = link_to image_tag("day-and-night.png", width: '20px', height: '20px', alt: 'day-and-night icon', alt: 'day-and-night icon', class: 'language_flag', style: "margin-bottom: 1rem; margin-top: -1rem;"), url_for(color_theme: "#{cookies[:color_theme] == 'dark' ? 'light' : 'dark'}"), "data-turbolinks": "false"
+        .grid.mt-0
+          .s12
+            .language-selection.center-align{style: 'padding: 0.75rem 1rem; padding-top: 0; border-radius: 0;'}
+              %p{style: 'margin-top: 5px; margin-bottom: 0;'}= t('activerecord.attributes.customer.language')
+              = link_to image_tag("flags/united-kingdom.svg", width: '20px', height: '20px', alt: 'united-kingdom flag icon', class: 'language_flag', style: "border-bottom: #{cookies[:locale] == 'en' ? '1px solid white' : ''};"), url_for(locale: 'en'), "data-turbolinks": "false"
+              = link_to image_tag("flags/germany.svg", width: '20px', height: '20px', alt: 'germany flag icon', class: 'language_flag', style: "border-bottom: #{cookies[:locale] == 'de' ? '1px solid white' : ''};"), url_for(locale: 'de'), "data-turbolinks": "false"
+          -# .s12.center-align.hidden
+          -#   = link_to image_tag("day-and-night.png", width: '20px', height: '20px', alt: 'day-and-night icon', alt: 'day-and-night icon', class: 'language_flag', style: "margin-bottom: 1rem; margin-top: -1rem;"), url_for(color_theme: "#{cookies[:color_theme] == 'dark' ? 'light' : 'dark'}"), "data-turbolinks": "false"
