@@ -18,7 +18,7 @@
 
     %tbody.order-list-body
       - @orders.each do |order|
-        %tr{'data-id': order.id, 'data-component'=>'order', style: "background-color: #{order.new? ? '#a6bbba' : ''}; color: #{order.new? ? 'black' : ''};"}
+        %tr{'data-id': order.id, 'data-component'=>'order', style: "background-color: #{order.new? ? '#19475E' : ''};"}
           %td= order.title
           %td= order.text
           %td.hidden= order.data
@@ -30,6 +30,11 @@
             %td.center-align
             %td.center-align
           %td.admin-list-actions
+            .admin-list-actions__link
+              = form_for order, url: closed_order_path(order), role: 'form', method: :patch do |f|
+                = f.check_box :acknowledged, checked: false, class: 'hidden'
+                = f.button(type: 'submit', class:'small square', style:'margin: 0 0 0 5px;') do
+                  %i.material-icons.admin-actions__link__icon= 'keyboard_return'
             .admin-list-actions__link
               = link_to closed_order_path(order), data: { turbo_method: :delete } do
                 = button_tag class: 'small square', style:'margin: 0 0 0 5px;' do

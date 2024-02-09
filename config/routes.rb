@@ -8,8 +8,8 @@ Rails.application.routes.draw do
 
   resources :devices
 
-  resources :open_orders, only: [:index, :show, :update, :destroy]
-  resources :closed_orders, only: [:index, :show, :update, :destroy]
+  resources :open_orders, only: [:index, :update, :destroy]
+  resources :closed_orders, only: [:index, :update, :destroy]
 
   devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions', passwords: 'users/passwords' }
   resources :users, only: [:index, :show, :destroy]

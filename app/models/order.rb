@@ -21,6 +21,12 @@ class Order < ApplicationRecord
     self.acknowledged_by = user.email
   end
 
+  def unacknowledge
+    self.acknowledged = false
+    self.acknowledged_at = nil
+    self.acknowledged_by = nil
+  end
+
   def self.open_as_hash_with_counter_from_user(user_id)
     order_titles = []
     orders = []
@@ -86,6 +92,8 @@ private
           broadcast_remove_to ['open_orders', I18n.locale], target: "order-#{self.id}"
         end
       end
+    else
+      self.broadcast_new_order
     end
   end
 

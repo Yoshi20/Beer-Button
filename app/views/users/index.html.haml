@@ -31,7 +31,7 @@
 
     %tbody.user-list-body#users
       - @users.each do |user|
-        %tr{'data-id': user.id, 'data-component'=>'user', style: "background-color: #{session[:user_id].to_i == user.id ? '#a6bbba' : ''}; "}
+        %tr{'data-id': user.id, 'data-component'=>'user', style: "background-color: #{session[:user_id].to_i == user.id ? '#19475E' : ''}; "}
           %td.m.l= user.email
           %td.center-align
             %i.material-icons.admin-actions__link__icon= user.admin? ? 'check_box' : 'check_box_outline_blank'

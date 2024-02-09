@@ -1,29 +1,20 @@
 class OpenOrdersController < ApplicationController
-  before_action :set_order, only: [:show, :update, :destroy]
+  before_action :set_order, only: [:update, :destroy]
   before_action { @section = 'open_orders' }
 
-  # GET /orders
-  # GET /orders.json
+  # GET /open_orders
+  # GET /open_orders.json
   def index
     @orders = Order.open_as_hash_with_counter_from_user(current_user.id)
   end
 
-  # GET /orders/1
-  # GET /orders/1.json
-  def show
-    order = @order.open_as_hash_with_counter
-    respond_to do |format|
-      format.js {render partial: 'single_order', locals: {order: order, target_name: ''}, layout: false}
-    end
-  end
-
-  # PATCH/PUT /orders/1
-  # PATCH/PUT /orders/1.json
+  # PATCH/PUT /open_orders/1
+  # PATCH/PUT /open_orders/1.json
   def update
     respond_to do |format|
-      @order.acknowledge(current_user) if order_params[:acknowledged]
+      @order.acknowledge(current_user) if order_params[:acknowledged] == "1"
       if @order.save
-        if order_params[:acknowledged]
+        if order_params[:acknowledged] == "1"
           # Also ack orders with the same title
           Order.from_user(current_user.id).open.where(title: @order.title).each do |o|
             o.acknowledge(current_user)
@@ -40,8 +31,8 @@ class OpenOrdersController < ApplicationController
     end
   end
 
-  # DELETE /orders/1
-  # DELETE /orders/1.json
+  # DELETE /open_orders/1
+  # DELETE /open_orders/1.json
   def destroy
     respond_to do |format|
       if @order.destroy

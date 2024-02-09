@@ -16,7 +16,7 @@
       = link_to devices_path, class: (@section == 'devices' ? 'active' : '') do
         %i devices_other
         .max
-          %div= 'Devices'
+          %div= t('devices.title')
           %label (Admin)
   - else
     = link_to session_path(:user), class: (@section == 'login' ? 'active' : '') do
@@ -44,7 +44,7 @@
       = link_to devices_path, class: (@section == 'devices' ? 'active' : '') do
         %i devices_other
         .max
-          %div= 'Devices'
+          %div= t('devices.title')
           %label (Admin)
   - else
     = link_to session_path(:user), class: (@section == 'login' ? 'active' : '') do

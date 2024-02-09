@@ -12,7 +12,7 @@ de:
         acknowledged: "Quitiert"
         acknowledged_by: "Quitiert von"
         acknowledged_at: "Quitiert am"
-  devices:
+  orders:
     title: "Bestellungen"
     new: "Neue Bestellung"
     edit: "Bestellung bearbeiten"

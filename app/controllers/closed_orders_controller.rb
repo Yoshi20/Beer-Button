@@ -1,37 +1,20 @@
 class ClosedOrdersController < ApplicationController
-  before_action :set_order, only: [:show, :update, :destroy]
+  before_action :set_order, only: [:update, :destroy]
   before_action { @section = 'closed_orders' }
 
-  # GET /orders
-  # GET /orders.json
+  # GET /closed_orders
+  # GET /closed_orders.json
   def index
     @orders = Order.from_user(current_user.id).closed.paginate(page: params[:page], per_page: Order::MAX_ORDERS_PER_PAGE)
   end
 
-  # GET /orders/1
-  # GET /orders/1.json
-  def show
-    order = @order.open_as_hash_with_counter
-    respond_to do |format|
-      format.js {render partial: 'single_order', locals: {order: order, target_name: ''}, layout: false}
-    end
-  end
-
-  # PATCH/PUT /orders/1
-  # PATCH/PUT /orders/1.json
+  # PATCH/PUT /closed_orders/1
+  # PATCH/PUT /closed_orders/1.json
   def update
     respond_to do |format|
-      @order.acknowledge(current_user) if order_params[:acknowledged]
+      @order.unacknowledge if order_params[:acknowledged] == "0"
       if @order.save
-        if order_params[:acknowledged]
-          # Also ack orders with the same title
-          Order.from_user(current_user.id).open.where(title: @order.title).each do |o|
-            o.acknowledge(current_user)
-            o.save
-          end
-          format.turbo_stream {} # nothing to do, broadcasts are handled with -> after_update_commit :broadcast_updated_order
-        end
-        format.html { redirect_to closed_orders_path, notice: t('flash.notice.updating_order') }
+        format.html { redirect_to open_orders_path, notice: t('flash.notice.updating_order') }
         format.json { render json: {order: @order}, status: :ok }
       else
         format.html { redirect_to closed_orders_path, notice: t('flash.alert.updating_order') }
@@ -40,8 +23,8 @@ class ClosedOrdersController < ApplicationController
     end
   end
 
-  # DELETE /orders/1
-  # DELETE /orders/1.json
+  # DELETE /closed_orders/1
+  # DELETE /closed_orders/1.json
   def destroy
     respond_to do |format|
       if @order.destroy

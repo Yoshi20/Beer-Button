@@ -12,7 +12,7 @@ en:
         acknowledged: "Acknowledged"
         acknowledged_by: "Acknowledged by"
         acknowledged_at: "Acknowledged at"
-  devices:
+  orders:
     title: "Orders"
     new: "New order"
     edit: "Edit order"
