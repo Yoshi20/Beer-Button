@@ -88,7 +88,7 @@ private
   end
 
   def authenticate_admin!
-    unless (current_user.present? && current_user.admin?) || (request.path.include?("/users") && @devise_current_user.present? && @devise_current_user.admin?)
+    unless (current_user.present? && current_user.admin?) || (@devise_current_user.present? && @devise_current_user.admin?)
       render_forbidden
       return
     end
