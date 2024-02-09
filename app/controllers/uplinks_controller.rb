@@ -32,18 +32,8 @@ class UplinksController < ApplicationController
             text: "btnNr=#{button_number}; imgCode=#{image_code}; bat=#{battery}; temp=#{temperature}",
             data: params.to_json.to_s,
             device_id: device.id,
+            user_id: device.user_id,
           )
-          ActionCable.server.broadcast('OrdersChannel', event.attributes.except("data")) # broadcast new order
-          # open_order_ctr = Order.open.count
-          # WifiDisplay.all.each do |disp|
-          #   ActionCable.server.broadcast(
-          #     disp.name,
-          #     {
-          #       open_order_ctr: open_order_ctr,
-          #       beep: 1,
-          #     }
-          #   )
-          # end
         end
       else
         raise "lora_message_id: \"#{lora_message_id}\" is invalid"

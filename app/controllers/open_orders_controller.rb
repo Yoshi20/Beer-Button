@@ -5,7 +5,7 @@ class OpenOrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.open_as_hash_with_counter
+    @orders = Order.from_user(current_user.id).open_as_hash_with_counter
   end
 
   # GET /orders/1
@@ -25,7 +25,7 @@ class OpenOrdersController < ApplicationController
       if @order.save
         if order_params[:acknowledged]
           # Also ack orders with the same title
-          Order.open.where(title: @order.title).each do |o| # blup: und same customer?
+          Order.from_user(current_user.id).open.where(title: @order.title).each do |o|
             o.acknowledge(current_user)
             o.save
           end
@@ -57,7 +57,7 @@ class OpenOrdersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_order
-      @order = Order.find(params[:id])
+      @order = Order.from_user(current_user.id).find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
