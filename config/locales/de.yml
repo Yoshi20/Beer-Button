@@ -88,9 +88,9 @@ de:
       title: 'Offene Bestellungen'
       title_short: 'Offen'
     closed:
-      title: 'Geschlossene Bestellungen'
-      title_short: 'Geschlossen'
-    close: 'Schliessen'
+      title: 'Quittierte Bestellungen'
+      title_short: 'Quittiert'
+    close: 'Quittieren'
 
   users:
     mailer:

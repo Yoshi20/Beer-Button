@@ -6,7 +6,7 @@ de:
         other: "Geräte"
     attributes:
       device:
-        name: "Name/Tabelle"
+        name: "Name/Tisch"
         device_type: "Typ"
         device_type_id: "Typ"
         dev_eui: "DevEUI"

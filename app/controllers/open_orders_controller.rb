@@ -5,7 +5,7 @@ class OpenOrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.from_user(current_user.id).open_as_hash_with_counter
+    @orders = Order.open_as_hash_with_counter_from_user(current_user.id)
   end
 
   # GET /orders/1

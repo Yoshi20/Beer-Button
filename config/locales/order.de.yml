@@ -9,9 +9,9 @@ de:
         title: "Titel"
         text: "Text"
         data: "Daten"
-        acknowledged: "Geschlossen"
-        acknowledged_by: "Geschlossen von"
-        acknowledged_at: "Geschlossen am"
+        acknowledged: "Quitiert"
+        acknowledged_by: "Quitiert von"
+        acknowledged_at: "Quitiert am"
   devices:
     title: "Bestellungen"
     new: "Neue Bestellung"
