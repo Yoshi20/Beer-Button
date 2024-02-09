@@ -66,9 +66,9 @@ private
     I18n.available_locales.each do |locale|
       I18n.with_locale(locale) do
         if order[:count] > 1
-          broadcast_replace_to ['open_orders', locale], target: "order-#{order[:id]}", partial: 'open_orders/single_order', locals: { order: order }
+          broadcast_replace_to ['open_orders', locale], target: "order-#{order[:id]}", partial: 'open_orders/single_order', locals: { order: order, is_new: false }
         else
-          broadcast_append_to ['open_orders', locale], partial: 'open_orders/single_order', locals: { order: order }
+          broadcast_append_to ['open_orders', locale], partial: 'open_orders/single_order', locals: { order: order, is_new: true }
           broadcast_update_to ['open_orders', locale], target: "open-orders-count", html: "#{orders_count}"
         end
       end

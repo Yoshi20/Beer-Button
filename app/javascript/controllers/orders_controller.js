@@ -6,21 +6,20 @@ export default class extends Controller {
   // connect() {
   // }
 
-  fadeIn(e) {
-    e.target.closest('tr').classList.add("fadeIn");
-  }
-
-  fadeOut(e) {
-    let tr = e.target.closest('tr');
-    tr.classList.add("fadeOut");
-    setTimeout(function() {
-      tr.remove();
-    }, 800);
+  newOrderTargetConnected(t) {
+    t.classList.add("fadeIn");
   }
 
   close(e) {
-    // e.preventDefault();
-
+    /* Show fadeOut before submitting */
+    e.preventDefault();
+    let btn = e.target;
+    let tr = btn.closest('tr');
+    tr.classList.add("fadeOut");
+    let form = btn.closest('form');
+    setTimeout(function() {
+      form.requestSubmit(); // to make use of turbo_stream
+    }, 800);
   }
 
 }

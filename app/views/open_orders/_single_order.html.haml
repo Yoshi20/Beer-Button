@@ -1,4 +1,4 @@
-%tr{id: "order-#{order[:id]}"}
+%tr{id: "order-#{order[:id]}", 'data-orders-target': is_new ? 'newOrder' : ''}
   %td= order[:title] + (order[:count] > 1 ? " (#{order[:count]})" : '')
   %td
     - order = Order.find(order[:id])

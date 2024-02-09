@@ -19,7 +19,7 @@
 
     %tbody.order-list-body
       - @orders.each do |order|
-        %tr{'data-id': order.id, 'data-component'=>'order', style: "background-color: #{order.new? ? 'lightseagreen' : ''}; color: #{order.new? ? 'black' : ''};"}
+        %tr{'data-id': order.id, 'data-component'=>'order', style: "background-color: #{order.new? ? '#a6bbba' : ''}; color: #{order.new? ? 'black' : ''};"}
           %td= order.title
           %td= order.text
           %td.hidden= order.data
