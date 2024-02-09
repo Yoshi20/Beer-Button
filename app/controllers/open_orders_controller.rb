@@ -13,7 +13,7 @@ class OpenOrdersController < ApplicationController
   def show
     order = @order.open_as_hash_with_counter
     respond_to do |format|
-      format.js {render partial: 'single_order', locals: {order: order, is_new: false}, layout: false}
+      format.js {render partial: 'single_order', locals: {order: order, target_name: ''}, layout: false}
     end
   end
 
