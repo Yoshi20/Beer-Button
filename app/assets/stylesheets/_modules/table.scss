@@ -30,6 +30,11 @@
 //   }
 // }
 
+.table-dark {
+  margin-bottom: 0;
+  background-color: $color-grey-dark;
+}
+
 #orders {
   tr {
     height: 5rem;
@@ -45,16 +50,16 @@
 
 .fadeIn {
   @-moz-keyframes fadeIn {
-    from {opacity:0;}
-    to {opacity:1;}
+    from {opacity: 0;}
+    to {opacity: 1;}
   }
   @-webkit-keyframes fadeIn {
-    from {opacity:0;}
-    to {opacity:1;}
+    from {opacity: 0;}
+    to {opacity: 1;}
   }
   @keyframes fadeIn {
-    from {opacity:0;}
-    to {opacity:1;}
+    from {opacity: 0;}
+    to {opacity: 1;}
   }
 
   // @-moz-keyframes fadeIn {
@@ -77,16 +82,16 @@
 
 .fadeOut {
   @-moz-keyframes fadeOut {
-    from {opacity:1;}
-    to {opacity:0;}
+    from {opacity: 1;}
+    to {opacity: 0;}
   }
   @-webkit-keyframes fadeOut {
-    from {opacity:1;}
-    to {opacity:0;}
+    from {opacity: 1;}
+    to {opacity: 0;}
   }
   @keyframes fadeOut {
-    from {opacity:1;}
-    to {opacity:0;}
+    from {opacity: 1;}
+    to {opacity: 0;}
   }
 
   // @-moz-keyframes fadeOut {
@@ -105,4 +110,23 @@
   -webkit-animation: fadeOut 1000ms;
   -moz-animation: fadeOut 1000ms;
   animation: fadeOut 1000ms;
+}
+
+.highlight {
+  @-moz-keyframes highlight {
+    from {background-color: $color-grey-light;}
+    to {background-color: $color-grey-dark;}
+  }
+  @-webkit-keyframes highlight {
+    from {background-color: $color-grey-light;}
+    to {background-color: $color-grey-dark;}
+  }
+  @keyframes highlight {
+    from {background-color: $color-grey-light;}
+    to {background-color: $color-grey-dark;}
+  }
+
+  -webkit-animation: highlight 1000ms;
+  -moz-animation: highlight 1000ms;
+  animation: highlight 1000ms;
 }

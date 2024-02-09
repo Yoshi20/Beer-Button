@@ -10,7 +10,7 @@
 
 
 .order-list{data: {controller: 'orders'}}
-  %table.table.table-hover.table-dark{style: 'margin-bottom: 0; background-color: #20282e;'}
+  %table.table.table-hover.table-dark
     %tbody.order-list-body#orders
       - @orders.each do |order|
         = render partial: 'single_order', locals: {order: order, target_name: ''}

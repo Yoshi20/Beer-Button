@@ -58,6 +58,8 @@ export default class extends Controller {
 
   replacedOrderTargetConnected(t) {
     let tr = t;
+    /* Show highlight */
+    tr.classList.add("highlight");
     /* Update order in the orderList */
     let found = false;
     for(var j = 0; j < i; j++) {
