@@ -17,3 +17,4 @@ en:
     new: "New order"
     edit: "Edit order"
     prohibited: "prohibited this order from being saved:"
+    total_count: "Total orders count"

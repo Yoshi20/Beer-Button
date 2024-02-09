@@ -24,3 +24,4 @@ en:
     new: "New device"
     edit: "Edit device"
     prohibited: "prohibited this device from being saved:"
+    total_count: "Total devices count"

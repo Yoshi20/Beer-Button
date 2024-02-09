@@ -2,7 +2,7 @@
 
 .grid
   .s12
-    %p= "Total devices count = #{Device.all.count}"
+    %p= t('devices.total_count') + " = #{@devices.count}"
 
 .device-list
   %table.table.table-hover
