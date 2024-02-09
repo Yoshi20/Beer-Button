@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   #   redirect_to new_user_session_path, alert: t('flash.alert.login_failed')
   # end
 
+  before_action :devise_current_user
   before_action :set_locale
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
@@ -45,6 +46,23 @@ private
     new_user_session_path
   end
 
+  def devise_current_user
+    @devise_current_user ||= warden.authenticate(scope: :user)
+  end
+
+  def current_user
+    if @devise_current_user.present? && @devise_current_user.admin? && session[:user_id].present?
+      begin
+        @current_user ||= User.find(session[:user_id])
+      rescue ActiveRecord::RecordNotFound
+        session.delete(:user_id)
+        @devise_current_user
+      end
+    else
+      @devise_current_user
+    end
+  end
+
   def set_locale
     available_locales = I18n.available_locales
     if params[:locale].present?
@@ -70,7 +88,7 @@ private
   end
 
   def authenticate_admin!
-    unless current_user.present? && current_user.admin?
+    unless (current_user.present? && current_user.admin?) || (request.path.include?("/users") && @devise_current_user.present? && @devise_current_user.admin?)
       render_forbidden
       return
     end

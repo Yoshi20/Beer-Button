@@ -13,6 +13,8 @@ en:
   back: "Back"
   confirm: "Confirm"
   cancel: "Cancel"
+  actions: "Actions"
+  are_you_sure: "Are you sure?"
 
   flash:
     notice:

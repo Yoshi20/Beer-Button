@@ -13,6 +13,8 @@ de:
   back: "Zurück"
   confirm: "Bestätigen"
   cancel: "Abbrechen"
+  actions: "Aktionen"
+  are_you_sure: "Bist du sicher?"
 
   flash:
     notice:

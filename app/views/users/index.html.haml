@@ -1,0 +1,61 @@
+- @page_title = t('users.title')
+
+-# -# search form
+-# .grid
+-#   .s12
+-#     .search-form
+-#       = form_tag users_path, method: 'get', data: { turbo_method: :get }, class: 'form-inline' do
+-#         .field.suffix.border.small{style: 'margin: 1.5rem 0px; margin-bottom: 0px;'}
+-#           = search_field_tag :search, params[:search], placeholder: t('users.search')
+-#           %i search
+
+.grid
+  .s12.middle-align
+    %p= t('users.total_count') + " = #{@users.count}"
+
+.user-list
+  %table.table.table-hover.border
+    %thead.table-header
+      %tr
+        %th.m.l
+          = t('activerecord.attributes.user.email')
+        %th.center-align
+          = t('activerecord.attributes.user.is_admin')
+        %th.l.center-align
+          = t('activerecord.attributes.user.sign_in_count')
+        %th.l
+          = t('activerecord.attributes.user.last_sign_in_at')
+        %th.l
+          = t('activerecord.attributes.user.created_at')
+        %th.right-align= t('actions')
+
+    %tbody.user-list-body#users
+      - @users.each do |user|
+        %tr{'data-id': user.id, 'data-component'=>'user', style: "background-color: #{session[:user_id].to_i == user.id ? '#a6bbba' : ''}; "}
+          %td.m.l= user.email
+          %td.center-align
+            %i.material-icons.admin-actions__link__icon= user.admin? ? 'check_box' : 'check_box_outline_blank'
+            -# = form_for user, url: user_path(user), html: { "data-turbo": "false" }, data: { turbo_method: :patch } do |f|
+            -#   .hidden= f.check_box :is_admin, checked: !user.admin?
+            -#   = f.button type: 'submit', class:'small square', style:'background: white; color: black;', disabled: user == current_user do
+            -#     %i.material-icons.admin-actions__link__icon= user.admin? ? 'check_box' : 'check_box_outline_blank'
+          %td.l.center-align= user.sign_in_count
+          %td.l= user.current_sign_in_at.present? ? user.current_sign_in_at.to_fs(:custom_datetime) : ''
+          %td.l= user.created_at.localtime.to_fs(:custom_datetime)
+          %td.center-align
+            .admin-list-actions.right-align
+              -# .admin-list-actions__link
+              -#   = link_to edit_user_path(user), data: { turbo_method: :get } do
+              -#     = button_tag class: 'small square', style:'margin: 0 0 0 5px;' do
+              -#       %i.material-icons.admin-actions__link__icon= 'edit'
+              - if @devise_current_user.admin?
+                .admin-list-actions__link
+                  = link_to user_path(user), data: { turbo_method: :get } do
+                    = button_tag class: 'small square', style:'margin: 0 0 0 5px;' do
+                      %i.material-icons.admin-actions__link__icon= 'person_pin'
+              .admin-list-actions__link
+                = button_to user_path(user), method: :delete, form: { data: { turbo_method: :delete, turbo_confirm: t('are_you_sure') } }, class: 'small square', style:'margin: 0 0 0 5px;', disabled: (user == current_user || user == @devise_current_user) do
+                  %i.material-icons.admin-actions__link__icon= 'delete'
+
+  -# .user-list-footer
+  -#   = render 'paginator', users: @users

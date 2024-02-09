@@ -5,17 +5,12 @@
       %i menu
       %menu.left.no-wrap#burger-dropdown
         - if current_user.present?
-          -# - if current_user.super_admin?
-          -#   = link_to customers_path, class: (@section == 'customers' ? 'active row' : 'row') do
-          -#     %i domain
-          -#     .max
-          -#       %div= t('customers.title')
-          -#       %label (Super Admin)
-          -#   = link_to email_trackers_path, class: (@section == 'email_trackers' ? 'active row' : 'row') do
-          -#     %i mail
-          -#     .max
-          -#       %div= t('email_trackers.title')
-          -#       %label (Super Admin)
+          - if current_user.admin? || (@devise_current_user.present? && @devise_current_user.admin?)
+            = link_to users_path, class: (@section == 'users' ? 'active row' : 'row') do
+              %i group
+              .max
+                %div= t('users.title')
+                %label (Admin)
           = link_to edit_user_registration_path, class: (@section == 'account' ? 'active row' : 'row') do
             %i account_circle
             %div= 'Account'
