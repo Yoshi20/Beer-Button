@@ -25,18 +25,11 @@ class OpenOrdersController < ApplicationController
       if @order.save
         if order_params[:acknowledged]
           # Also ack orders with the same title
-          Order.open.where(title: @order.title).each do |o|
+          Order.open.where(title: @order.title).each do |o| # blup: und same customer?
             o.acknowledge(current_user)
             o.save
           end
-          open_order_ctr = Order.open.count
-          ActionCable.server.broadcast('OrdersChannel', @order.attributes.except("data")) # broadcast acknowledged order
-          # WifiDisplay.all.each do |disp|
-          #   ActionCable.server.broadcast(
-          #     disp.name,
-          #     { open_order_ctr: open_order_ctr }
-          #   )
-          # end
+          format.turbo_stream {} # nothing to do, broadcasts are handled with -> after_update_commit :broadcast_updated_order
         end
         format.html { redirect_to open_orders_path, notice: t('flash.notice.updating_order') }
         format.json { render json: {order: @order}, status: :ok }

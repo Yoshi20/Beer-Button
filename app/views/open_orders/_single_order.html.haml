@@ -4,6 +4,6 @@
     - order = Order.find(order[:id])
     = form_for order, url: open_order_path(order), role: 'form', method: :patch do |f|
       = f.check_box :acknowledged, checked: true, class: 'hidden'
-      = f.button(type: 'submit', class:'extra', style: 'height: 40px;') do
+      = f.button(type: 'submit', class:'extra', style: 'height: 40px;', data: {action: 'click->orders#close'}) do
         = t('orders.close')
   %td= order[:created_at].localtime.to_fs(:custom_datetime_hour)

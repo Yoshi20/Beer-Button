@@ -5,6 +5,7 @@ class Order < ApplicationRecord
   scope :closed, -> { where(acknowledged: true).order(acknowledged_at: :desc) }
 
   after_create_commit :broadcast_new_order
+  after_update_commit :broadcast_updated_order
 
   MAX_ORDERS_PER_PAGE = 100
 
@@ -61,11 +62,28 @@ private
 
   def broadcast_new_order
     order = self.open_as_hash_with_counter
-    if order[:count] > 1
-      broadcast_replace_to 'open_orders', target: "order-#{order[:id]}", partial: 'open_orders/single_order', locals: { order: order }
-    else
-      broadcast_append_to 'open_orders', partial: 'open_orders/single_order', locals: { order: order }
-      broadcast_update_to 'open_orders', target: "open-orders-count", html: "#{Order.open_as_hash_with_counter.count}"
+    orders_count = Order.open_as_hash_with_counter.count
+    I18n.available_locales.each do |locale|
+      I18n.with_locale(locale) do
+        if order[:count] > 1
+          broadcast_replace_to ['open_orders', locale], target: "order-#{order[:id]}", partial: 'open_orders/single_order', locals: { order: order }
+        else
+          broadcast_append_to ['open_orders', locale], partial: 'open_orders/single_order', locals: { order: order }
+          broadcast_update_to ['open_orders', locale], target: "open-orders-count", html: "#{orders_count}"
+        end
+      end
+    end
+  end
+
+  def broadcast_updated_order
+    if self.acknowledged
+      orders_count = Order.open_as_hash_with_counter.count
+      I18n.available_locales.each do |locale|
+        I18n.with_locale(locale) do
+          broadcast_update_to ['open_orders', I18n.locale], target: "open-orders-count", html: "#{orders_count}"
+          broadcast_remove_to ['open_orders', I18n.locale], target: "order-#{self.id}"
+        end
+      end
     end
   end
 

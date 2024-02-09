@@ -1,6 +1,6 @@
 - @page_title = t('orders.open.title')
 
-= turbo_stream_from 'open_orders'
+= turbo_stream_from 'open_orders', I18n.locale
 
 .grid
   .s12
@@ -9,7 +9,7 @@
       %span{id: 'open-orders-count'}= @orders.count
 
 
-.order-list
+.order-list{data: {controller: 'orders'}}
   %table.table.table-hover.table-dark{style: 'margin-bottom: 0; background-color: #20282e;'}
     %tbody.order-list-body#orders
       - @orders.each do |order|
