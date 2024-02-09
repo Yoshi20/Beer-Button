@@ -17,7 +17,7 @@
         %th= t('activerecord.attributes.device.battery')
         %th= t('activerecord.attributes.device.last_time_seen')
         %th Created at
-        %th Actions
+        %th= t('actions')
 
     %tbody.device-list-body.with-show
       - @devices.each do |device|

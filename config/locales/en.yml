@@ -15,6 +15,7 @@ en:
   cancel: "Cancel"
   actions: "Actions"
   are_you_sure: "Are you sure?"
+  minutes_open: "Minutes open"
 
   flash:
     notice:

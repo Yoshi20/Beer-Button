@@ -11,11 +11,10 @@
         %th= t('activerecord.attributes.order.title')
         %th= t('activerecord.attributes.order.text')
         %th.hidden= t('activerecord.attributes.order.data')
-        -# %th.text-center= t('activerecord.attributes.order.acknowledged') + '?'
-        %th.text-center= t('activerecord.attributes.order.acknowledged_by')
-        %th.text-center= t('activerecord.attributes.order.acknowledged_at')
-        %th.text-center= 'Minutes open'
-        %th Actions
+        %th.center-align= t('activerecord.attributes.order.acknowledged_by')
+        %th.center-align= t('activerecord.attributes.order.acknowledged_at')
+        %th.center-align= t('minutes_open')
+        %th= t('actions')
 
     %tbody.order-list-body
       - @orders.each do |order|
@@ -23,16 +22,13 @@
           %td= order.title
           %td= order.text
           %td.hidden= order.data
-          -# %td.text-center
-          -#   - if order.acknowledged
-          -#     .material-icons= 'done'
-          %td.text-center= order.acknowledged_by
+          %td.center-align= order.acknowledged_by
           - if order.acknowledged_at.present?
-            %td.text-center= order.acknowledged_at.localtime.to_fs(:custom_datetime)
-            %td.text-center= (order.acknowledged_at.to_i - order.created_at.to_i)/60
+            %td.center-align= order.acknowledged_at.localtime.to_fs(:custom_datetime)
+            %td.center-align= (order.acknowledged_at.to_i - order.created_at.to_i)/60
           - else
-            %td.text-center
-            %td.text-center
+            %td.center-align
+            %td.center-align
           %td.admin-list-actions
             .admin-list-actions__link
               = link_to closed_order_path(order), data: { turbo_method: :delete } do

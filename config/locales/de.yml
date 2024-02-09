@@ -15,6 +15,7 @@ de:
   cancel: "Abbrechen"
   actions: "Aktionen"
   are_you_sure: "Bist du sicher?"
+  minutes_open: "Minuten offen"
 
   flash:
     notice:
