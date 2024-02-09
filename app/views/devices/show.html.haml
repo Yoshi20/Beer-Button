@@ -8,14 +8,6 @@
         = button_to edit_device_path(@device), class:'border small square', method: :get do
           %i.material-icons.admin-actions__link__icon= 'edit'
 
-    - if @device.user != current_user
-      .admin-actions__link
-        - if @device.user.admin? or current_user.admin?
-          = mail_to @device.user.email, body: "#{t('hi')}\n\n...", class:'btn border small square' do
-            %i.material-icons.admin-actions__link__icon= 'email'
-      - if current_user.admin? and @device.user.mobile_number.present?
-        .mobile_number= " (#{@device.user.mobile_number})"
-
   -# device ------------------------------------------------------------------
   .grid
     .s12

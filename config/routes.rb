@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :closed_orders, only: [:index, :show, :update, :destroy]
 
   devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions', passwords: 'users/passwords' }
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show, :destroy]
 
   root "home#index"
 

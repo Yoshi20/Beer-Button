@@ -1,5 +1,6 @@
 class Order < ApplicationRecord
   belongs_to :device
+  belongs_to :user
 
   scope :open, -> { where(acknowledged: false) }
   scope :closed, -> { where(acknowledged: true).order(acknowledged_at: :desc) }

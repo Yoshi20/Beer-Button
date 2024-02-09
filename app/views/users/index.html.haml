@@ -54,7 +54,7 @@
                     = button_tag class: 'small square', style:'margin: 0 0 0 5px;' do
                       %i.material-icons.admin-actions__link__icon= 'person_pin'
               .admin-list-actions__link
-                = button_to user_path(user), method: :delete, form: { data: { turbo_method: :delete, turbo_confirm: t('are_you_sure') } }, class: 'small square', style:'margin: 0 0 0 5px;', disabled: (user == current_user || user == @devise_current_user) do
+                = button_to user_path(user), method: :delete, form: { data: { turbo_method: :delete, turbo_confirm: t('are_you_sure') } }, class: 'small square', style:'margin: 0 0 0 5px;', disabled: (user == current_user || user == @devise_current_user || !current_user.admin?) do
                   %i.material-icons.admin-actions__link__icon= 'delete'
 
   -# .user-list-footer

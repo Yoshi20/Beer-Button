@@ -16,6 +16,9 @@ en:
         hw_version: "Hardware version"
         last_time_seen: "Last Time Seen"
         battery: "Battery"
+        created_at: "Created at"
+        updated_at: "Updated at"
+        user_id: "User ID"
   devices:
     title: "Devices"
     new: "New device"

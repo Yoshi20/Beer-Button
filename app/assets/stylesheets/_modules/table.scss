@@ -1,35 +1,3 @@
-// .table {
-//   font-size: .75rem;
-//   position: relative;
-//   tr  {
-//     position: relative;
-//   }
-//   .table-header {
-//     th {
-//       border-top: none;
-//       color: $color-grey;
-//       font-weight: 600;
-//       text-transform: uppercase;
-//     }
-//   }
-//   tbody {
-//     td {
-//       vertical-align: middle;
-//     }
-//     tr:hover {
-//       background-color: $color-grey-light;
-//     }
-//     .admin-list-actions {
-//       display: flex;
-//     }
-//   }
-//   .with-show {
-//     tr  {
-//       cursor: pointer;
-//     }
-//   }
-// }
-
 .table-dark {
   margin-bottom: 0;
   background-color: $color-grey-dark;
