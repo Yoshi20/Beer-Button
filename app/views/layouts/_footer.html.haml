@@ -1,12 +1,8 @@
 .footer
   .grid.center-align
-    .s12
-      © BeerButton 2024
-
-  -# .grid.no-space.mt-0
-  -#   .s12.center-align
-  -#     = link_to 'Imprint', imprint_path, class: 'color-default'
-  -#     %span{style: 'margin: 0 5px; '}= '|'
-  -#     = link_to 'Privacy Notice', privacy_notice_path, class: 'color-default'
-  -#     %span{style: 'margin: 0 5px; '}= '|'
-  -#     = link_to 'Terms', terms_path, class: 'color-default'
+    .s4
+      = link_to t('imprint.title'), imprint_path, style: "text-decoration: #{@section == 'imprint' ? 'underline' : ''};"
+    .s4
+      = link_to "© BeerButton 2024", home_path
+    .s4
+      = link_to t('contact.title'), contact_path, style: "text-decoration: #{@section == 'contact' ? 'underline' : ''};"

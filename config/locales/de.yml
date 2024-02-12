@@ -26,6 +26,7 @@ de:
       deleting_device: "Gerät wurder erfolgreich gelöscht"
       updating_order: "Bestellung wurder erfolgreich aktualisiert"
       deleting_order: "Bestellung wurder erfolgreich gelöscht"
+      contact: "Nachricht erfolgreich gesendet. Vielen Dank :)"
     alert:
       updating_user: "Benutzer konnte nicht aktualisiert werden!"
       deleting_user: "Benutzer konnte nicht gelöscht werden!"
@@ -36,6 +37,7 @@ de:
       updating_order: "Bestellung konnte nicht aktualisiert werden!"
       deleting_order: "Bestellung konnte nicht gelöscht werden!"
       login_failed: "Login fehlgeschlagen! Bitte versuche es erneut"
+      contact: "Nachricht konnte nicht gesendet werden!"
 
   navigation:
     account:
@@ -126,3 +128,17 @@ de:
     errors:
       verification_failed: "reCAPTCHA denkt, dass Sie kein Mensch sind. Bitte versuchen Sie es erneut"
       recaptcha_unreachable: "reCAPTCHA-Serverfehler. Bitte versuchen Sie es erneut"
+
+  imprint:
+    title: "Impressum"
+    title1: "Haftungsausschluss"
+    text1: "Der Autor übernimmt keinerlei Gewähr hinsichtlich der inhaltlichen Richtigkeit, Genauigkeit, Aktualität, Zuverlässigkeit und Vollständigkeit der Informationen."
+    text2: "Haftungsansprüche gegen den Autor wegen Schäden materieller oder immaterieller Art, welche aus dem Zugriff oder der Nutzung bzw. Nichtnutzung der veröffentlichten Informationen, durch Missbrauch der Verbindung oder durch technische Störungen entstanden sind, werden ausgeschlossen."
+    text3: "Alle Angebote sind unverbindlich. Der Autor behält es sich ausdrücklich vor, Teile der Seiten oder das gesamte Angebot ohne besondere Ankündigung zu verändern, zu ergänzen, zu löschen oder die Veröffentlichung zeitweise oder endgültig einzustellen."
+    title2: "Haftungsausschluss für Links"
+    text4: "Verweise und Links auf Webseiten Dritter liegen ausserhalb unseres Verantwortungsbereichs. Es wird jegliche Verantwortung für solche Webseiten abgelehnt. Der Zugriff und die Nutzung solcher Webseiten erfolgen auf eigene Gefahr des jeweiligen Nutzers."
+    source: "Quelle:"
+
+  contact:
+    title: "Kontakt"
+    verb: "kontaktieren"

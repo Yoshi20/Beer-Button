@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   mount ActionCable.server => '/cable'
 
   get 'home' => 'home#index'
+  get 'imprint' => 'imprint#index'
+  get 'contact' => 'contact#index'
+  post 'contact' => 'contact#create'
 
   post 'lora_uplink' => 'uplinks#lora_uplink'
 

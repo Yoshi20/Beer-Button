@@ -1,0 +1,24 @@
+- @page_title = t('contact.title')
+
+%br
+.grid
+  .s12
+    = form_tag contact_path, method: 'post', class: 'form' do
+      .field.label.border
+        = text_field_tag :name, params[:name], style: 'font-size: 20px;', autofocus: 'true'
+        = label_tag :name, 'Dein Name'
+      .field.label.border
+        = email_field_tag :email, params[:email], autocomplete: "email"
+        = label_tag :email, 'Deine E-Mail'
+      .field.label.border{style: "margin-bottom: 280px;"}
+        = text_area_tag :text, params[:text], style: 'height: 300px; font-size: 20px;'
+        = label_tag :text, 'Deine Frage oder dein Feedback'
+      .field.hidden
+        = text_field_tag :url, params[:url], class: 'form-control' # hidden field_tag to trick spam bots
+      .field
+        %button.small-elevate.s12{type: 'submit'}
+          %i mail
+          %span= "Abschicken"
+
+
+      -# blup: reCAPTCHA
