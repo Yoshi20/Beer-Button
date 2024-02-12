@@ -26,7 +26,11 @@ protected
 
   def after_sign_in_path_for(resource)
     if request.referer.nil? or request.referer.include?('/users/')
-     home_path
+      if current_user.devices.any?
+        open_orders_path
+      else
+        home_path
+      end
     else
      request.referer
     end
@@ -37,14 +41,6 @@ protected
   end
 
 private
-
-  def after_sign_in_path_for(resource_or_scope)
-    home_path
-  end
-
-  def after_sign_out_path_for(resource_or_scope)
-    new_user_session_path
-  end
 
   def devise_current_user
     @devise_current_user ||= warden.authenticate(scope: :user)

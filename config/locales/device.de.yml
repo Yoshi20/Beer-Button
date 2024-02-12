@@ -23,5 +23,7 @@ de:
     title: "Geräte"
     new: "Neues Gerät"
     edit: "Gerät bearbeiten"
+    create: "Gerät erstellen"
+    update: "Gerät aktualisieren"
     prohibited: "verhindern das Speichern dieses Geräts:"
     total_count: "Gesamtzahl der Geräte"

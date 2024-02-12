@@ -1,11 +1,11 @@
 - @page_title = t('orders.open.title')
 
-= turbo_stream_from 'open_orders', I18n.locale
+= turbo_stream_from 'open_orders', current_user.id, I18n.locale
 
 .grid
   .s12
     %p
-      = "Total orders count ="
+      = t('orders.total_count')
       %span{id: 'open-orders-count'}= @orders.count
 
 

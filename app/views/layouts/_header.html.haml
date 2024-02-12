@@ -5,7 +5,7 @@
       %i menu
       %menu.left.no-wrap#burger-dropdown
         - if current_user.present?
-          - if current_user.admin? || (@devise_current_user.present? && @devise_current_user.admin?)
+          - if @devise_current_user.admin?
             = link_to users_path, class: (@section == 'users' ? 'active row' : 'row') do
               %i group
               .max

@@ -3,10 +3,9 @@
 .device
   -# admin actions -----------------------------------------------------------
   .admin-actions
-    -if current_user.admin? or @device.user == current_user
-      .admin-actions__link
-        = button_to edit_device_path(@device), class:'border small square', method: :get do
-          %i.material-icons.admin-actions__link__icon= 'edit'
+    .admin-actions__link
+      = button_to edit_device_path(@device), class:'border small square', method: :get do
+        %i.material-icons.admin-actions__link__icon= 'edit'
 
   -# device ------------------------------------------------------------------
   .grid

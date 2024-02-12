@@ -23,5 +23,7 @@ en:
     title: "Devices"
     new: "New device"
     edit: "Edit device"
+    create: "Create device"
+    update: "Update device"
     prohibited: "prohibited this device from being saved:"
     total_count: "Total devices count"

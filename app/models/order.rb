@@ -74,10 +74,10 @@ private
     I18n.available_locales.each do |locale|
       I18n.with_locale(locale) do
         if order[:count] > 1
-          broadcast_replace_to ['open_orders', locale], target: "order-#{order[:id]}", partial: 'open_orders/single_order', locals: { order: order, target_name: 'replacedOrder' }
+          broadcast_replace_to ['open_orders', self.user_id, locale], target: "order-#{order[:id]}", partial: 'open_orders/single_order', locals: { order: order, target_name: 'replacedOrder' }
         else
-          broadcast_append_to ['open_orders', locale], partial: 'open_orders/single_order', locals: { order: order, target_name: 'newOrder' }
-          broadcast_update_to ['open_orders', locale], target: "open-orders-count", html: "#{total_orders_count}"
+          broadcast_append_to ['open_orders', self.user_id, locale], partial: 'open_orders/single_order', locals: { order: order, target_name: 'newOrder' }
+          broadcast_update_to ['open_orders', self.user_id, locale], target: "open-orders-count", html: "#{total_orders_count}"
         end
       end
     end
@@ -88,8 +88,8 @@ private
       total_orders_count = Order.open_as_hash_with_counter_from_user(self.user_id).count
       I18n.available_locales.each do |locale|
         I18n.with_locale(locale) do
-          broadcast_update_to ['open_orders', I18n.locale], target: "open-orders-count", html: "#{total_orders_count}"
-          broadcast_remove_to ['open_orders', I18n.locale], target: "order-#{self.id}"
+          broadcast_update_to ['open_orders', self.user_id, I18n.locale], target: "open-orders-count", html: "#{total_orders_count}"
+          broadcast_remove_to ['open_orders', self.user_id, I18n.locale], target: "order-#{self.id}"
         end
       end
     else

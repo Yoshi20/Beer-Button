@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   # GET /users/1 or /users/1.json
   def show
-    session[:user_id] = params[:id]
+    session[:user_id] = params[:id] # impersonate
     redirect_to users_path
   end
 

@@ -12,12 +12,9 @@
     = link_to closed_orders_path, class: (@section == 'closed_orders' ? 'active' : '') do
       %i remove_shopping_cart
       %div= t('orders.closed.title_short')
-    - if @devise_current_user.admin?
-      = link_to devices_path, class: (@section == 'devices' ? 'active' : '') do
-        %i devices_other
-        .max
-          %div= t('devices.title')
-          %label (Admin)
+    = link_to devices_path, class: (@section == 'devices' ? 'active' : '') do
+      %i devices_other
+      %div= t('devices.title')
   - else
     = link_to session_path(:user), class: (@section == 'login' ? 'active' : '') do
       %i input
@@ -40,12 +37,9 @@
     = link_to closed_orders_path, class: (@section == 'closed_orders' ? 'active' : '') do
       %i remove_shopping_cart
       %div= t('orders.closed.title_short')
-    - if @devise_current_user.admin?
-      = link_to devices_path, class: (@section == 'devices' ? 'active' : '') do
-        %i devices_other
-        .max
-          %div= t('devices.title')
-          %label (Admin)
+    = link_to devices_path, class: (@section == 'devices' ? 'active' : '') do
+      %i devices_other
+      %div= t('devices.title')
   - else
     = link_to session_path(:user), class: (@section == 'login' ? 'active' : '') do
       %i input
