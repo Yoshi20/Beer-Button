@@ -31,7 +31,7 @@ de:
     new_password_confirmation: "Neues Passwort bestätigen"
     current_password_to_confirm: "Aktuelles Passwort zum Bestätigen"
     logout: "Möchtest Du dich wirklich abmelden?"
-    total_count: "Gesamtzahl der Benutzer"
+    total_count: "Anzahl Benutzer"
     limit_reached:
       title: "Benutzerlimit erreicht!"
       text: "Für mehr Benutzer wird ein grösseres Paket benötigt (Kontaktiere:"

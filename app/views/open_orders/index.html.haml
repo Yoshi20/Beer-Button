@@ -5,9 +5,8 @@
 .grid
   .s12
     %p
-      = t('orders.total_count')
+      = t('orders.total_count') + " ="
       %span{id: 'open-orders-count'}= @orders.count
-
 
 .order-list{data: {controller: 'orders'}}
   %table.table.table-hover.table-dark
