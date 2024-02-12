@@ -2,6 +2,7 @@
 
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action { @section = 'account' }
+  prepend_before_action :check_captcha, only: [:create]
   # before_action :authenticate_admin!, only: [:new, :create]
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
@@ -74,6 +75,22 @@ class Users::RegistrationsController < Devise::RegistrationsController
     respond_to do |format|
       format.html { redirect_to home_path, alert: t('flash.alert.unauthorized') }
       format.json { render json: { status: 'error', message: t('flash.alert.unauthorized') }, status: :forbidden }
+    end
+  end
+
+
+  private
+
+  def check_captcha
+    return if verify_recaptcha(secret_key: ENV["RECAPTCHA_SECRET_KEY"])
+
+    self.resource = resource_class.new sign_up_params
+    resource.validate # Look for any other validation errors besides reCAPTCHA
+    set_minimum_password_length
+
+    respond_with_navigational(resource) do
+      flash.discard(:recaptcha_error) # We need to discard flash to avoid showing it on the next page reload
+      render :new
     end
   end
 

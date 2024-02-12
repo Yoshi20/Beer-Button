@@ -19,6 +19,9 @@
         = f.password_field :password_confirmation, autocomplete: "new-password"
         = f.label :password_confirmation
 
+      .field{style: 'margin-bottom: 3rem;'}
+        = recaptcha_tags(site_key: ENV["RECAPTCHA_SITE_KEY"])
+
       .field
         .grid
           .s12.center-align
@@ -31,5 +34,3 @@
             = link_to t('log_in'), session_path(:user)
           .s6.center-align
             = link_to t('devise.sessions.forgot_pw'), new_password_path(resource_name)
-
--# blup: reCAPTCHA

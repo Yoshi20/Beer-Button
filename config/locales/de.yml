@@ -37,7 +37,7 @@ de:
       updating_order: "Bestellung konnte nicht aktualisiert werden!"
       deleting_order: "Bestellung konnte nicht gelöscht werden!"
       login_failed: "Login fehlgeschlagen! Bitte versuche es erneut"
-      contact: "Nachricht konnte nicht gesendet werden!"
+      contact: "Nachricht konnte nicht gesendet werden! E-Mail oder Text fehlt"
 
   navigation:
     account:

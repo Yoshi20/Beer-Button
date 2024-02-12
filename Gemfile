@@ -82,9 +82,9 @@ gem 'devise' # (flexible authentication solution)
 # See https://github.com/tigrish/devise-i18n
 gem 'devise-i18n' # (devise locale data collection)
 
-# # See https://github.com/laserlemon/figaro
-# gem 'figaro' # (ENV file: config/application.yml)
-#
+# See https://github.com/laserlemon/figaro
+gem 'figaro' # (ENV file: config/application.yml)
+
 # See http://haml.info
 gem 'haml-rails' # (HAML)
 #
@@ -96,6 +96,9 @@ gem 'http_accept_language'
 #
 # See https://github.com/svenfuchs/rails-i18n
 gem 'rails-i18n', '~> 7.0.0' # (rails locale data collection)
+
+# See https://github.com/ambethia/recaptcha
+gem 'recaptcha'
 
 # See https://github.com/mislav/will_paginate
 gem 'will_paginate'

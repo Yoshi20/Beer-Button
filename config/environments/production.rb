@@ -73,6 +73,22 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  # My ActionMailer Config
+  config.action_mailer.default_url_options = { :host => 'https://beerbutton.ch'}
+  # config.action_mailer.perform_deliveries = false
+  # config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default_options = {from: 'BeerButton <admin@beerbutton.ch>'}
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    :port           => ENV['INFOMANIAK_SMTP_PORT'],
+    :address        => ENV['INFOMANIAK_SMTP_SERVER'],
+    :user_name      => ENV['INFOMANIAK_SMTP_LOGIN'],
+    :password       => ENV['INFOMANIAK_SMTP_PASSWORD'],
+    :domain         => 'beerbutton.ch',
+    :authentication => :login,
+  }
+
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false

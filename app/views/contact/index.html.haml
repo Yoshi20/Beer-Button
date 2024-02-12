@@ -15,10 +15,9 @@
         = label_tag :text, 'Deine Frage oder dein Feedback'
       .field.hidden
         = text_field_tag :url, params[:url], class: 'form-control' # hidden field_tag to trick spam bots
+      .field{style: 'margin-bottom: 3rem;'}
+        = recaptcha_tags(site_key: ENV["RECAPTCHA_SITE_KEY"])
       .field
         %button.small-elevate.s12{type: 'submit'}
           %i mail
           %span= "Abschicken"
-
-
-      -# blup: reCAPTCHA

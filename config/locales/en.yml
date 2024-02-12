@@ -37,7 +37,7 @@ en:
       updating_order: "Order couldn't be updated!"
       deleting_order: "Order couldn't be deleted!"
       login_failed: "Login failed! Please try again"
-      contact: "Message could not be sent!"
+      contact: "Message could not be sent! Email or text is missing"
 
   navigation:
     account:

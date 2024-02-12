@@ -41,6 +41,21 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  # ActionMailer config
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.perform_deliveries = false
+  # config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.default_options = {from: 'BeerButton <admin@beerbutton.ch>'}
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    :port           => ENV['INFOMANIAK_SMTP_PORT'],
+    :address        => ENV['INFOMANIAK_SMTP_SERVER'],
+    :user_name      => ENV['INFOMANIAK_SMTP_LOGIN'],
+    :password       => ENV['INFOMANIAK_SMTP_PASSWORD'],
+    :domain         => 'beerbutton.ch',
+    :authentication => :login,
+  }
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 

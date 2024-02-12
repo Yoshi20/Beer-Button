@@ -4,7 +4,7 @@ class ContactMailer < ApplicationMailer
     @email = params[:email]
     @name = params[:name]
     @text = params[:text]
-    mail(to: 'admin@beer-button.com', subject: "Nachricht von #{@name}") #blup
+    mail(to: 'admin@beerbutton.ch', subject: "Nachricht von #{@name}")
   end
 
 end
