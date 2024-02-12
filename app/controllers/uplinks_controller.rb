@@ -29,7 +29,7 @@ class UplinksController < ApplicationController
         unless is_heartbeat
           event = Order.create!(
             title: device.name,
-            text: "btnNr=#{button_number}; imgCode=#{image_code}; bat=#{battery}; temp=#{temperature}",
+            text: "{\"btnNr\":#{button_number},\"imgCode\":\"#{image_code}\",\"bat\":#{battery},\"temp\":#{temperature}}",
             data: params.to_json.to_s,
             device_id: device.id,
             user_id: device.user_id,

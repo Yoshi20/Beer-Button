@@ -20,7 +20,7 @@
       - @orders.each do |order|
         %tr{'data-id': order.id, 'data-component'=>'order', style: "background-color: #{order.new? ? '#19475E' : ''};"}
           %td= order.title
-          %td= order.text
+          %td= order.text.gsub('{','').gsub('}','').gsub('"','').gsub(',',', ').gsub(':','=')
           %td.hidden= order.data
           %td.center-align= order.acknowledged_by
           - if order.acknowledged_at.present?
