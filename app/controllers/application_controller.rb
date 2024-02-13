@@ -15,13 +15,13 @@ protected
 
   def configure_permitted_parameters
     #new
-    added_attrs = [:email, :password, :password_confirmation, :remember_me]#, :full_name, :address, :mobile_number]
+    added_attrs = [:email, :password, :password_confirmation, :remember_me, :phone_number]
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
 
   def user_root_path
-    home_path
+    root_path
   end
 
   def after_sign_in_path_for(resource)

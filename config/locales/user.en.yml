@@ -20,6 +20,7 @@ en:
         last_sign_in_at: "Last Log in at"
         sign_in_count: "Log in counter"
         created_at: "Created at"
+        phone_number: "Phone number"
   users:
     title: "Users"
     new: "New user"

@@ -7,17 +7,25 @@
 
       .field.label.border
         = f.email_field :email, autocomplete: "email", autofocus: 'true'
-        = f.label :email
+        = f.label :email, t('activerecord.attributes.user.email') + '*'
+        %i email
+
+      .field.label.border
+        = f.text_field :phone_number
+        = f.label :phone_number, t('activerecord.attributes.user.phone_number')
+        %i phone
 
       .field.label.border
         = f.password_field :password, autocomplete: "new-password"
-        = f.label :password
+        = f.label :password, t('activerecord.attributes.user.password') + '*'
+        %i lock
         - if @minimum_password_length
           %em= "(#{@minimum_password_length} characters minimum)"
 
-      .field.label.border
-        = f.password_field :password_confirmation, autocomplete: "new-password"
-        = f.label :password_confirmation
+      -# .field.label.border
+      -#   = f.password_field :password_confirmation, autocomplete: "new-password"
+      -#   = f.label :password_confirmation
+      -#   %i lock
 
       .field{style: 'margin-bottom: 3rem;'}
         = recaptcha_tags(site_key: ENV["RECAPTCHA_SITE_KEY"])

@@ -9,23 +9,32 @@
       .field.label.border
         = f.email_field :email, autocomplete: "email", autofocus: 'true'
         = f.label :email
+        %i email
 
       - if devise_mapping.confirmable? && resource.pending_reconfirmation?
         = t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email)
 
       .field.label.border
+        = f.text_field :phone_number
+        = f.label :phone_number
+        %i phone
+
+      .field.label.border
         = f.password_field :password, autocomplete: "new-password"
         = f.label :password
+        %i lock
         - if @minimum_password_length
           %em= "(#{@minimum_password_length} characters minimum)"
 
-      .field.label.border
-        = f.password_field :password_confirmation, autocomplete: "new-password"
-        = f.label :password_confirmation
+      -# .field.label.border
+      -#   = f.password_field :password_confirmation, autocomplete: "new-password"
+      -#   = f.label :password_confirmation
+      -#   %i lock
 
       .field.label.border
         = f.password_field :current_password, autocomplete: "current-password"
         = f.label :current_password, t('.we_need_your_current_password_to_confirm_your_changes')
+        %i lock
 
       .field
         .grid

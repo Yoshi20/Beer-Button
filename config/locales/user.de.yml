@@ -20,6 +20,7 @@ de:
         last_sign_in_at: "Letzte Anmeldung am"
         sign_in_count: "Anmeldezähler"
         created_at: "Erstellt am"
+        phone_number: "Telefonnummer"
   users:
     title: "Benutzer"
     new: "Neuer Benutzer"
