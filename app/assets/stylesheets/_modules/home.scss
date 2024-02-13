@@ -1,30 +1,14 @@
-// .home {
-//   padding: 0px 10px;
-//   color: $color-text;
-//
-//   .title-row {
-//     @media only screen and (min-width: $min-widths-m) {
-//       margin-top: 30px;
-//       margin-bottom: 30px;
-//     }
-//   }
-//
-//   .home-text-subtitle {
-//     font-family: CarterOne;
-//     font-size: 20px;
-//     @media only screen and (min-width: $min-widths-m) {
-//       padding: 0 30rem;
-//       font-size: 26px;
-//     }
-//   }
-//
-//   .home-text-paragraph {
-//     font-family: Roboto;
-//     font-size: 16px;
-//     @media only screen and (min-width: $min-widths-m) {
-//       padding: 0 30rem;
-//       font-size: 20px;
-//     }
-//   }
-//
-// }
+.home {
+  margin-top: 1rem;
+
+  h6 {
+     color: $color-default;
+
+  }
+
+  p {
+    font-size: 16px;
+    color: $color-text;
+  }
+
+}
