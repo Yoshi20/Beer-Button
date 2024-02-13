@@ -18,6 +18,12 @@ de:
   minutes_open: "Minuten offen"
 
   home:
+    title: "Home"
+    title1: "Willkommen beim \"BeerButton\"-Pilotprojekt"
+    text11: "-> Ein Mitarbeiter wird sich bald bei Dir melden <-"
+    text12: "In der Zwischenzeit könntest du ja ein Bier trinken."
+
+  landing_page:
     title: "Pilotprojekt \"BeerButton\""
     title1: "Worum gehts?"
     text11: "Das BeerButton-Pilotprojekt ist eine Initiative, die darauf abzielt, die Bestell- und/oder Serviceerfahrung in gastronomischen Betrieben zu optimieren und den Umsatz zu steigern, ohne initial hohe Investitionskosten tragen zu müssen."

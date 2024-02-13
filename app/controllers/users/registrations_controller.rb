@@ -73,7 +73,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def render_forbidden
     respond_to do |format|
-      format.html { redirect_to home_path, alert: t('flash.alert.unauthorized') }
+      format.html { redirect_to root_path, alert: t('flash.alert.unauthorized') }
       format.json { render json: { status: 'error', message: t('flash.alert.unauthorized') }, status: :forbidden }
     end
   end

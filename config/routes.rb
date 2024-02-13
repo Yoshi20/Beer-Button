@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   mount ActionCable.server => '/cable'
 
+  get 'landing_page' => 'landing_page#index'
   get 'home' => 'home#index'
   get 'imprint' => 'imprint#index'
   get 'contact' => 'contact#index'
@@ -17,6 +18,6 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions', passwords: 'users/passwords' }
   resources :users, only: [:index, :show, :destroy]
 
-  root "home#index"
+  root "landing_page#index"
 
 end

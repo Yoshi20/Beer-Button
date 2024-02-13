@@ -1,6 +1,6 @@
 -# pc & tablet view:
 %nav.left.l
-  = link_to root_path, class: (@section == 'home' ? 'active' : '') do
+  = link_to home_path, class: (@section == 'home' ? 'active' : '') do
     = image_tag 'beer_1.png', class: 'circle', alt: 'BeerButton profile picture'
   -# = link_to home_path, class: (@section == 'home' ? 'active' : '') do
   -#   %i home

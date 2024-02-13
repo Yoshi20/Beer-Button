@@ -18,6 +18,10 @@ en:
   minutes_open: "Minutes open"
 
   home:
+    title: "Home"
+    title1: "Welcome to the \"BeerButton\" pilot"
+
+  landing_page:
     title: "Pilot project \"BeerButton\""
     title1: "What's it about?"
     text11: "The BeerButton pilot project is an initiative that aims to optimize the ordering and/or service experience in restaurants and increase sales without having to bear high initial investment costs."

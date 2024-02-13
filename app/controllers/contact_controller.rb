@@ -13,7 +13,7 @@ class ContactController < ApplicationController
       if verify_recaptcha(secret_key: ENV["RECAPTCHA_SECRET_KEY"])
         if params[:email].present? && params[:text].present? && !params[:url].present? # the :url is used to trick spam bots
           ContactMailer.with(name: params[:name], email: params[:email], text: params[:text]).contact_email.deliver_later
-          format.html { redirect_to home_path(), notice: t('flash.notice.contact') }
+          format.html { redirect_to root_path, notice: t('flash.notice.contact') }
         else
           format.html { redirect_to contact_path(name: params[:name], email: params[:email], text: params[:text], url: params[:url]), alert: t('flash.alert.contact') }
         end
