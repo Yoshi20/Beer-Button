@@ -20,8 +20,11 @@ de:
   home:
     title: "Home"
     title1: "Willkommen beim \"BeerButton\"-Pilotprojekt"
-    text11: "-> Ein Mitarbeiter wird sich bald bei Dir melden <-"
-    text12: "In der Zwischenzeit könntest du ja ein Bier trinken."
+    text11: "Unter %{link} findest du alle aktiven BeerButton-Bestellungen. Das ist die Seite die im \"daily business\" verwendet werden muss."
+    text12: "Sobald eine Bestellung quittiert wurden, ist sie unter %{link} zu finden. Dort kann sie bei Bedarf via Aktions-Knopf zurückgelegt oder gelöscht werden."
+    text13: "Im %{link}-Menü findest du alle deine BeerButtons. Mit der Bearbeiten-Aktion kann einem BeerButtons ein neuer Name/Tisch zugewiesen werden."
+    title2: "Willkommen beim \"BeerButton\"-Pilotprojekt"
+    text21: "-> Ein Mitarbeiter wird sich bald bei Dir melden <-"
 
   landing_page:
     title: "Pilotprojekt \"BeerButton\""

@@ -9,7 +9,7 @@
     %thead.table-header
       %tr
         %th= t('activerecord.attributes.device.name')
-        %th= t('activerecord.attributes.device.dev_eui')
+        %th.m.l= t('activerecord.attributes.device.dev_eui')
         -# %th= t('activerecord.attributes.device.app_eui')
         -# %th= t('activerecord.attributes.device.app_key')
         -# %th= t('activerecord.attributes.device.hw_version')
@@ -23,7 +23,7 @@
       - @devices.each do |device|
         %tr{'data-id': device.id, 'data-component'=>'device'}
           %td= device.name
-          %td= device.dev_eui
+          %td.m.l= device.dev_eui
           -# %td= device.app_eui
           -# %td= device.app_key
           -# %td= device.hw_version

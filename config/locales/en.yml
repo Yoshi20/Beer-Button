@@ -19,7 +19,12 @@ en:
 
   home:
     title: "Home"
-    title1: "Welcome to the \"BeerButton\" pilot"
+    title1: "Welcome to the BeerButton Pilot Project"
+    text11: "You can find all active BeerButton orders under %{link}. This is the page that must be used in daily business."
+    text12: "As soon as an order has been closed, it can be found under %{link}. If necessary, it can be put back or deleted using the action button."
+    text13: "You can find all your BeerButtons in the %{link} menu. Using the Edit action you can assign a new name/table to a BeerButton."
+    title2: "Welcome to the BeerButton Pilot Project"
+    text21: "-> An employee will contact you soon <-"
 
   landing_page:
     title: "Pilot project \"BeerButton\""

@@ -52,6 +52,11 @@
       -# %strong= t('landing_page.text79')
       -# %p= t('landing_page.text710')
 
+    .s12
+      .center-align
+        = image_tag 'beer_1.png', width: '10%', alt: 'Beer image', style: 'cursor: pointer;', onclick: "document.getElementById('glass-clink-audio').play();"
+        = audio_tag "glass-clink.mp3", id: "glass-clink-audio"
+
 
 
 

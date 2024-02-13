@@ -2,7 +2,18 @@
 
 .home
   .grid
+    - if current_user.devices.any?
+      .s12
+        %h6.center-align= t('home.title1')
+        %p= t('home.text11', link: link_to(t('orders.open.title_short'), open_orders_path, class: 'link')).html_safe
+        %p= t('home.text12', link: link_to(t('orders.closed.title_short'), closed_orders_path, class: 'link')).html_safe
+        %p= t('home.text13', link: link_to(t('devices.title'), devices_path, class: 'link')).html_safe
+    - else
+      .s12
+        %h6.center-align= t('home.title2')
+        %p.center-align= t('home.text21')
+
     .s12
-      %h6.center-align= t('home.title1')
-      %p.center-align= t('home.text11')
-      .center-align= image_tag 'beer_1.png', width: '10%', alt: 'Beer image'
+      .center-align
+        = image_tag 'beer_1.png', width: '10%', alt: 'Beer image', style: 'cursor: pointer;', onclick: "document.getElementById('glass-clink-audio').play();"
+        = audio_tag "glass-clink.mp3", id: "glass-clink-audio"
