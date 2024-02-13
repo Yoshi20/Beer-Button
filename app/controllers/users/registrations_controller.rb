@@ -14,9 +14,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super do |user|
+      if user.persisted?
+        UserMailer.with(email: user.email, phone: user.phone_number).registraion_email.deliver_later
+        # UserMailer.with(user: user, locale: I18n.locale).welcome_email.deliver_later
+      end
+    end
+  end
 
   # GET /resource/edit
   # def edit

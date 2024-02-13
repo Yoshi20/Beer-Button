@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1><%= @email %> registered on beerbutton.ch</h1>
+    <p>
+      Email: <%= @email %><br>
+      Phone: <%= @phone %><br>
+    </p>
+    <p>
+      To see this new user, click
+      <%= link_to "here", @url %>.
+    </p>
+  </body>
+</html>

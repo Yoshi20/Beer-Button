@@ -11,7 +11,7 @@
         %i email
 
       .field.label.border
-        = f.text_field :phone_number
+        = f.text_field :phone_number, value: (params[:user].present? ? params[:user][:phone_number] : nil)
         = f.label :phone_number, t('activerecord.attributes.user.phone_number')
         %i phone
 
