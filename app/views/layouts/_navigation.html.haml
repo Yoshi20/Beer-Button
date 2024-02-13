@@ -1,11 +1,11 @@
 -# pc & tablet view:
 %nav.left.l
-  = link_to home_path, class: (@section == 'home' ? 'active' : '') do
-    = image_tag 'beer_1.png', class: 'circle', alt: 'BeerButton profile picture'
-  -# = link_to home_path, class: (@section == 'home' ? 'active' : '') do
-  -#   %i home
-  -#   %div= 'Home'
   - if current_user.present?
+    = link_to home_path, class: (@section == 'home' ? 'active' : '') do
+      = image_tag 'beer_1.png', class: 'circle', alt: 'BeerButton profile picture'
+    -# = link_to home_path, class: (@section == 'home' ? 'active' : '') do
+    -#   %i home
+    -#   %div= 'Home'
     = link_to open_orders_path, class: (@section == 'open_orders' ? 'active' : '') do
       %i shopping_cart
       %div= t('orders.open.title_short')
@@ -16,6 +16,11 @@
       %i devices_other
       %div= t('devices.title')
   - else
+    = link_to root_path, class: (@section == 'home' ? 'active' : '') do
+      = image_tag 'beer_1.png', class: 'circle', alt: 'BeerButton profile picture'
+    -# = link_to home_path, class: (@section == 'home' ? 'active' : '') do
+    -#   %i home
+    -#   %div= 'Home'
     = link_to session_path(:user), class: (@section == 'login' ? 'active' : '') do
       %i input
       %div= t('login')
@@ -27,10 +32,10 @@
 
 -# mobile view:
 %nav.bottom.s.m
-  = link_to home_path, class: (@section == 'home' ? 'active' : '') do
-    %i home
-    %div= 'Home'
   - if current_user.present?
+    = link_to home_path, class: (@section == 'home' ? 'active' : '') do
+      %i home
+      %div= 'Home'
     = link_to open_orders_path, class: (@section == 'open_orders' ? 'active' : '') do
       %i shopping_cart
       %div= t('orders.open.title_short')
@@ -41,6 +46,9 @@
       %i devices_other
       %div= t('devices.title')
   - else
+    = link_to root_path, class: (@section == 'home' ? 'active' : '') do
+      %i home
+      %div= 'Home'
     = link_to session_path(:user), class: (@section == 'login' ? 'active' : '') do
       %i input
       %div= t('login')
