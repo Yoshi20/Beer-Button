@@ -5,7 +5,7 @@ require 'mina/rvm'    # for rvm support. (https://rvm.io)
 set :rvm_use_path, '/usr/share/rvm/scripts/rvm'
 
 set :application_name, 'beerbutton'
-set :domain, '195.201.89.38'
+set :domain, '91.107.228.193'
 set :deploy_to, '/var/www/beerbutton'
 set :repository, 'git@github.com:Yoshi20/Beer-Button.git'
 set :branch, 'prod'
