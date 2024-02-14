@@ -96,6 +96,9 @@ gem 'http_accept_language'
 
 # See https://github.com/kpumuk/meta-tags
 gem 'meta-tags'
+
+# For autom. deployment
+gem 'mina'
 #
 # See https://github.com/svenfuchs/rails-i18n
 gem 'rails-i18n', '~> 7.0.0' # (rails locale data collection)

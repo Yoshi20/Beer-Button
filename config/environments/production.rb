@@ -83,7 +83,7 @@ Rails.application.configure do
   ActionMailer::Base.smtp_settings = {
     :port           => ENV['INFOMANIAK_SMTP_PORT'],
     :address        => ENV['INFOMANIAK_SMTP_SERVER'],
-    :user_name      => ENV['INFOMANIAK_SMTP_LOGIN'],
+    :user_name      => ENV['INFOMANIAK_SMTP_LOGIN_BB'],
     :password       => ENV['INFOMANIAK_SMTP_PASSWORD'],
     :domain         => 'beerbutton.ch',
     :authentication => :login,

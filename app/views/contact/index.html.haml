@@ -16,7 +16,7 @@
       .field.hidden
         = text_field_tag :url, params[:url], class: 'form-control' # hidden field_tag to trick spam bots
       .field{style: 'margin-bottom: 3rem;'}
-        = recaptcha_tags(site_key: ENV["RECAPTCHA_SITE_KEY"])
+        = recaptcha_tags(site_key: ENV["RECAPTCHA_SITE_KEY_BB"])
       .field
         %button.small-elevate.s12{type: 'submit'}
           %i mail

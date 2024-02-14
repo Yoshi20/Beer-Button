@@ -172,6 +172,8 @@ GEM
     matrix (0.4.2)
     meta-tags (2.20.0)
       actionpack (>= 6.0.0, < 7.2)
+    mina (1.2.5)
+      rake
     mini_mime (1.1.5)
     minitest (5.22.2)
     msgpack (1.7.2)
@@ -362,6 +364,7 @@ DEPENDENCIES
   jbuilder
   jsbundling-rails
   meta-tags
+  mina
   pg (~> 1.5)
   puma (~> 6.4.2)
   rack-mini-profiler

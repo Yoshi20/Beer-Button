@@ -87,7 +87,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
   def check_captcha
-    return if verify_recaptcha(secret_key: ENV["RECAPTCHA_SECRET_KEY"])
+    return if verify_recaptcha(secret_key: ENV["RECAPTCHA_SECRET_KEY_BB"])
 
     self.resource = resource_class.new sign_up_params
     resource.validate # Look for any other validation errors besides reCAPTCHA

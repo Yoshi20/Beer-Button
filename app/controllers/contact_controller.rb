@@ -10,7 +10,7 @@ class ContactController < ApplicationController
   # POST /contact
   def create
     respond_to do |format|
-      if verify_recaptcha(secret_key: ENV["RECAPTCHA_SECRET_KEY"])
+      if verify_recaptcha(secret_key: ENV["RECAPTCHA_SECRET_KEY_BB"])
         if params[:email].present? && params[:text].present? && !params[:url].present? # the :url is used to trick spam bots
           ContactMailer.with(name: params[:name], email: params[:email], text: params[:text]).contact_email.deliver_later
           format.html { redirect_to root_path, notice: t('flash.notice.contact') }
