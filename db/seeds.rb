@@ -15,9 +15,9 @@ DeviceType.create([
 ])
 
 # Admins:
-jh = User.find_by_email('jh@oxon.ch')
+jh = User.find_by_email('jascha_haldemann@hotmail.com')
 if jh.present?
   jh.update(is_admin: true)
 else
-  User.create(email: 'jh@oxon.ch', password: '123456', is_admin: true)
+  User.create(email: 'jascha_haldemann@hotmail.com', password: '123456', is_admin: true)
 end
