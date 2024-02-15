@@ -4,7 +4,7 @@ class DevicesController < ApplicationController
   before_action { @section = 'devices' }
 
   def index
-    @devices = current_user.devices.includes(:device_type).order(:dev_eui)
+    @devices = current_user.devices.includes(:device_type).order(:name)
     # @devices = filter_devices(@devices) if params[:filter].present?
     respond_to do |format|
       format.html { @devices_total_count = @devices.count }

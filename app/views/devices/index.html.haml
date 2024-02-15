@@ -20,6 +20,7 @@
         %th= t('actions')
 
     %tbody.device-list-body.with-show
+      - now = DateTime.now.to_i
       - @devices.each do |device|
         %tr{'data-id': device.id, 'data-component'=>'device'}
           %td= device.name
@@ -28,8 +29,9 @@
           -# %td= device.app_key
           -# %td= device.hw_version
           -# %td= device.fw_version
-          %td.center-align= device.battery
-          %td.center-align= device.last_time_seen.localtime.to_fs(:custom_datetime) if device.last_time_seen.present?
+          %td.center-align{style: "color: #{device.battery.to_i <= 20 ? 'red' : ''};"}= device.battery
+          - dt = now - device.last_time_seen.to_i
+          %td.center-align{style: "color: #{dt > (3600*24+30) ? 'red' : ''};"}= device.last_time_seen.localtime.to_fs(:custom_datetime) if device.last_time_seen.present?
           -# %td.center-align= device.created_at.localtime.to_fs(:custom_datetime)
           %td.admin-list-actions{style: 'display: flex;'}
             - if @devise_current_user.admin?
