@@ -106,6 +106,9 @@ gem 'rails-i18n', '~> 7.0.0' # (rails locale data collection)
 # See https://github.com/ambethia/recaptcha
 gem 'recaptcha'
 
+# See https://app.honeybadger.io
+gem "honeybadger", "~> 5.5"
+
 # See https://github.com/mislav/will_paginate
 gem 'will_paginate'
 
