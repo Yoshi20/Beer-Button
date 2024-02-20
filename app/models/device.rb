@@ -5,4 +5,8 @@ class Device < ApplicationRecord
 
   validates :name, :dev_eui, presence: true
 
+  def type
+    self.device_type.name
+  end
+
 end
