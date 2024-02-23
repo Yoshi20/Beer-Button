@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
   post 'lora_uplink' => 'uplinks#lora_uplink'
 
+  get "/service-worker.js" => "service_worker#service_worker"
+  get "/manifest.json" => "service_worker#manifest"
+
   resources :devices
 
   resources :open_orders, only: [:index, :update, :destroy]

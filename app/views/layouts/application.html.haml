@@ -17,6 +17,7 @@
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     =#blup %script{:src => "https://js.pusher.com/beams/1.0/push-notifications-cdn.js"}
     = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
+    %link{crossorigin: "use-credentials", href: "/manifest.json", rel: "manifest"}
 
   %body.dark
     #primary

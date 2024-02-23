@@ -6,6 +6,9 @@ import "beercss/dist/cdn/beer.min.js"
 import "@hotwired/turbo-rails"
 import "./controllers"
 
+// PWA
+import "./custom/companion"
+
 // fix for beercss forms with hotwire
 document.addEventListener("turbo:load", function (e) {
   if (ui != undefined) {

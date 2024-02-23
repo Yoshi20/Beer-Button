@@ -93,3 +93,9 @@ Updating passenger fixed: cookie name containing a unrecognized character like [
 sudo apt-get update
 sudo apt-get upgrade
 ```
+
+## PWA
+
+1. https://hi.teloslabs.co/post/make-your-rails-app-work-offline-part-1-pwa-setup
+2. https://hi.teloslabs.co/post/make-your-rails-app-work-offline-part-2-caching-assets-and-adding-an-offline-fallback
+3. https://hi.teloslabs.co/post/make-your-rails-app-work-offline-part-3-crud-actions-with-indexeddb-and-stimulus
