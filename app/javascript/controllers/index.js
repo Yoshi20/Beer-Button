@@ -6,3 +6,5 @@ import { application } from "./application"
 
 import OrdersController from "./orders_controller"
 application.register("orders", OrdersController)
+import IsOnlineController from "./is_online_controller"
+application.register("is_online", IsOnlineController)

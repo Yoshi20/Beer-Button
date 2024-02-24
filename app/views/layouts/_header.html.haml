@@ -1,5 +1,8 @@
 %header
   %nav
+    #is-online{style: 'position: absolute; top: 8px;', data: {controller: 'is_online'}}
+      %span#is-online-dot{style: 'color: chartreuse;'}●
+      %span#is-online-text{style: 'color: gray; font-size: 10px; position: absolute; left: 13px; top: 2px;'} online
     %h1.page-title.max.center-align= @page_title
     %button.circle.transparent{data: {ui: '#burger-dropdown'}}
       %i menu
