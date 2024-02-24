@@ -15,22 +15,22 @@ registerRoute(
 )
 // For every other page we use network first to ensure the most up-to-date resources
 registerRoute(
-  ({request, url}) => ((request.destination === "document" || request.destination === "") &&
-    // we fetch this image to check the network status, so we exclude it from cache
-    !url.pathname.includes("/assets/images.1pixel.png")),
+  ({request, url}) => (request.destination === "document" || request.destination === ""),
   new NetworkFirst({
     cacheName: 'documents',
   })
 )
 // For assets (scripts and images), we use cache first
 registerRoute(
-  ({request}) => request.destination === "script" || request.destination === "style",
+  ({request}) => (request.destination === "script" || request.destination === "style"),
   new CacheFirst({
     cacheName: 'assets-styles-and-scripts',
   })
 )
 registerRoute(
-  ({request}) => request.destination === "image",
+  ({request}) => (request.destination === "image" &&
+    // we fetch this image to check the network status, so we exclude it from cache
+    !url.pathname.includes("/1pixel.png")),
   new CacheFirst({
     cacheName: 'assets-images',
   })
