@@ -1,6 +1,8 @@
 
 connect() {
   // same as above, we declare a db and online status
+  this.db = findOrCreateDB()
+  this.onlineStatus = getOnlineStatusFromLocalStorage() === "true"
 }
 
 async sync() {

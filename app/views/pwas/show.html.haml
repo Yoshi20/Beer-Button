@@ -1,0 +1,45 @@
+- @page_title = @device.name
+
+.device
+  -# admin actions -----------------------------------------------------------
+  .admin-actions
+    .admin-actions__link
+      = button_to edit_device_path(@device), class:'border small square', method: :get do
+        %i.material-icons.admin-actions__link__icon= 'edit'
+
+  -# device ------------------------------------------------------------------
+  .grid
+    .s12
+      %p
+        %b= t('activerecord.attributes.device.dev_eui') + ':'
+        = @device.dev_eui
+      %p
+        %b= t('activerecord.attributes.device.app_eui') + ':'
+        = @device.app_eui
+      %p
+        %b= t('activerecord.attributes.device.app_key') + ':'
+        = @device.app_key
+      %p
+        %b= t('activerecord.attributes.device.hw_version') + ':'
+        = @device.hw_version
+      %p
+        %b= t('activerecord.attributes.device.fw_version') + ':'
+        = @device.fw_version
+      %p
+        %b= t('activerecord.attributes.device.battery') + ':'
+        = @device.battery
+      %p
+        %b= t('activerecord.attributes.device.last_time_seen') + ':'
+        = @device.last_time_seen.localtime.to_fs(:custom_datetime) if @device.last_time_seen.present?
+      %p
+        %b= t('activerecord.attributes.device.created_at') + ':'
+        = @device.created_at.localtime.to_fs(:custom_datetime)
+      %p
+        %b= t('activerecord.attributes.device.updated_at') + ':'
+        = @device.updated_at.localtime.to_fs(:custom_datetime)
+      %p
+        %b= t('activerecord.attributes.device.device_type_id') + ':'
+        = @device.device_type_id
+      %p
+        %b= t('activerecord.attributes.device.user_id') + ':'
+        = @device.user_id

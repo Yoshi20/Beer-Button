@@ -8,14 +8,16 @@ const {CacheFirst, NetworkFirst} = workbox.strategies;
 const {registerRoute} = workbox.routing;
 // If we have critical pages that won't be changing very often, it's a good idea to use cache first with them
 registerRoute(
-  ({url}) => url.pathname.startsWith('/home'),
+  ({url}) => url.pathname.startsWith('/home'), //blup: static landing pages etc.
   new CacheFirst({
     cacheName: 'documents',
   })
 )
 // For every other page we use network first to ensure the most up-to-date resources
 registerRoute(
-  ({request, url}) => request.destination === "document" || request.destination === "",
+  ({request, url}) => ((request.destination === "document" || request.destination === "") &&
+    // we fetch this image to check the network status, so we exclude it from cache
+    !url.pathname.includes("/assets/images.1pixel.png")),
   new NetworkFirst({
     cacheName: 'documents',
   })
@@ -77,11 +79,37 @@ self.addEventListener('fetch', onFetch);
 
 
 
-registerRoute(
-  ({request, url}) => request.destination === "document" || request.destination === "" &&
-    // we fetch this image to check the network status, so we exclude it from cache
-    !url.pathname.includes("/assets/images.1pixel.png"),
-  new NetworkFirst({
-    cacheName: 'documents',
-  })
-)
+
+
+
+
+
+
+
+
+// Add a service worker for processing Web Push notifications:
+//
+// self.addEventListener("push", async (event) => {
+//   const { title, options } = await event.data.json()
+//   event.waitUntil(self.registration.showNotification(title, options))
+// })
+//
+// self.addEventListener("notificationclick", function(event) {
+//   event.notification.close()
+//   event.waitUntil(
+//     clients.matchAll({ type: "window" }).then((clientList) => {
+//       for (let i = 0; i < clientList.length; i++) {
+//         let client = clientList[i]
+//         let clientPath = (new URL(client.url)).pathname
+//
+//         if (clientPath == event.notification.data.path && "focus" in client) {
+//           return client.focus()
+//         }
+//       }
+//
+//       if (clients.openWindow) {
+//         return clients.openWindow(event.notification.data.path)
+//       }
+//     })
+//   )
+// })
