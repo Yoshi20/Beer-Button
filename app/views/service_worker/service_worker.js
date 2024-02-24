@@ -1,9 +1,10 @@
+/* Caching with Workbox ----------------------------------------------------- */
 importScripts(
   "https://storage.googleapis.com/workbox-cdn/releases/6.4.1/workbox-sw.js"
 );
 
 // We first define the strategies we will use and the registerRoute function
-// https://developer.chrome.com/docs/workbox/modules/workbox-strategies/
+// See: https://developer.chrome.com/docs/workbox/modules/workbox-strategies/
 const {CacheFirst, NetworkFirst} = workbox.strategies;
 const {registerRoute} = workbox.routing;
 // If we have critical pages that won't be changing very often, it's a good idea to use cache first with them
@@ -15,7 +16,10 @@ registerRoute(
 )
 // For every other page we use network first to ensure the most up-to-date resources
 registerRoute(
-  ({request, url}) => (request.destination === "document" || request.destination === ""),
+  ({request, url}) => (request.destination === "document" || request.destination === "" &&
+    // we fetch this image to check the network status, so we exclude it from cache
+    !url.pathname.includes("/1pixel.png")
+  ),
   new NetworkFirst({
     cacheName: 'documents',
   })
@@ -28,17 +32,25 @@ registerRoute(
   })
 )
 registerRoute(
-  ({request}) => (request.destination === "image" &&
-    // we fetch this image to check the network status, so we exclude it from cache
-    !url.pathname.includes("/1pixel.png")),
+  ({request}) => (request.destination === "image"),
   new CacheFirst({
     cacheName: 'assets-images',
   })
 )
+registerRoute(
+  ({request}) => (request.destination === "font"),
+  new CacheFirst({
+    cacheName: 'fonts',
+  })
+)
+registerRoute(
+  ({request}) => (request.destination === "audio"),
+  new CacheFirst({
+    cacheName: 'audios',
+  })
+)
 
-
-
-
+/* Offline fallback --------------------------------------------------------- */
 const {warmStrategyCache} = workbox.recipes;
 const {setCatchHandler} = workbox.routing;
 const strategy = new CacheFirst();
@@ -47,19 +59,16 @@ const urls = ['/offline.html'];
 warmStrategyCache({urls, strategy});
 // Trigger a 'catch' handler when any of the other routes fail to generate a response
 setCatchHandler(async ({event}) => {
- switch (event.request.destination) {
-   case 'document':
-     return strategy.handle({event, request: urls[0]});
-   default:
-    return Response.error();
+  console.log('setCatchHandler:', event);
+  switch (event.request.destination) {
+    case 'document':
+      return strategy.handle({event, request: urls[0]});
+    default:
+      return Response.error();
   }
 });
 
-
-
-
-
-
+/* Service worker callbacks ------------------------------------------------- */
 function onInstall(event) {
   console.log('[Serviceworker]', "Installing!", event);
 }
@@ -69,7 +78,12 @@ function onActivate(event) {
 }
 
 function onFetch(event) {
-  console.log('[Serviceworker]', "Fetching!", event);
+  const url = event.request.url;
+  if (!url.includes('/1pixel.png') && !url.includes('/mini-profiler')) {
+    console.log('[Serviceworker]', "Fetching!", event);
+    console.log('url = ', url);
+    console.log('destination = ', event.request.destination);
+  }
 }
 
 self.addEventListener('install', onInstall);

@@ -4,8 +4,12 @@ var intervalID = 0;
 
 async function isOnline() {
   if (!window.navigator.onLine) return false;
-  const response = await fetch("/1pixel.png")
-  return response.ok;
+  try {
+    const response = await fetch("/1pixel.png")
+    return response.ok;
+  } catch (err) {
+    return false;
+  }
 }
 
 async function handleIsOnline() {

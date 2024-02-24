@@ -53,3 +53,46 @@
       .admin-actions__link
         = button_to new_device_path, class:'border small square', method: :get do
           %i.material-icons.admin-actions__link__icon= 'add'
+
+
+
+    .s12
+      .center-align
+        = image_tag 'blup.png', width: '10%', alt: 'QR image', id: 'myQR'
+
+
+
+:javascript
+  // check compatibility
+  if (!("BarcodeDetector" in globalThis)) {
+    console.log("Barcode Detector is not supported by this browser.");
+  } else {
+    console.log("Barcode Detector supported!");
+
+    // create new detector
+    const barcodeDetector = new BarcodeDetector({
+      formats: ["qr_code"],
+    });
+
+    // get supported formats
+    // BarcodeDetector.getSupportedFormats().then((supportedFormats) => {
+    //   supportedFormats.forEach((format) => console.log(format));
+    // });
+
+    // get QR code image
+    const imageEl = document.getElementById('myQR');
+    console.log(imageEl); // image can be an element, Blob, ImageData, or CanvasImageSource
+    // const img1 = new Image(); // Image constructor
+    // img1.src = imageEl.src;
+
+    // detect content of the QR code image
+    barcodeDetector
+      .detect(imageEl)
+      .then((barcodes) => {
+        console.log('blup:');
+        barcodes.forEach((barcode) => console.log(barcode.rawValue));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
