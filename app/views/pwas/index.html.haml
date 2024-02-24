@@ -61,6 +61,11 @@
         = image_tag 'blup.png', width: '10%', alt: 'QR image', id: 'myQR'
 
 
+      -# %video#video{:controls => "", :height => "240", :width => "320"}
+      -# %span#result
+
+      #reader{width:"200px"}
+
 
 :javascript
   // check compatibility
@@ -69,30 +74,35 @@
   } else {
     console.log("Barcode Detector supported!");
 
-    // create new detector
-    const barcodeDetector = new BarcodeDetector({
-      formats: ["qr_code"],
-    });
 
-    // get supported formats
-    // BarcodeDetector.getSupportedFormats().then((supportedFormats) => {
-    //   supportedFormats.forEach((format) => console.log(format));
+
+
+
+
+    // // create new detector
+    // const barcodeDetector = new BarcodeDetector({
+    //   formats: ["qr_code"],
     // });
-
-    // get QR code image
-    const imageEl = document.getElementById('myQR');
-    console.log(imageEl); // image can be an element, Blob, ImageData, or CanvasImageSource
-    // const img1 = new Image(); // Image constructor
-    // img1.src = imageEl.src;
-
-    // detect content of the QR code image
-    barcodeDetector
-      .detect(imageEl)
-      .then((barcodes) => {
-        console.log('blup:');
-        barcodes.forEach((barcode) => console.log(barcode.rawValue));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    //
+    // // get supported formats
+    // // BarcodeDetector.getSupportedFormats().then((supportedFormats) => {
+    // //   supportedFormats.forEach((format) => console.log(format));
+    // // });
+    //
+    // // get QR code image
+    // const imageEl = document.getElementById('myQR');
+    // console.log(imageEl); // image can be an element, Blob, ImageData, or CanvasImageSource
+    // // const img1 = new Image(); // Image constructor
+    // // img1.src = imageEl.src;
+    //
+    // // detect content of the QR code image
+    // barcodeDetector
+    //   .detect(imageEl)
+    //   .then((barcodes) => {
+    //     console.log('blup:');
+    //     barcodes.forEach((barcode) => console.log(barcode.rawValue));
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
   }
