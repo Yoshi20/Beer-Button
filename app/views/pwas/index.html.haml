@@ -56,12 +56,9 @@
 
 
 
+    -# blup: PWA tests
     .s12
       .center-align
-
-        -# %video#video{:controls => "", :height => "240", :width => "320"}
-        -# %span#result
-
         .qr-code-scanner{data: { controller: 'qr_code_scanner'}}
           = image_tag 'blup.png', width: '10%', alt: 'QR image', id: 'myQR', data: {action: 'click->qr_code_scanner#start'}
           #qr-code-reader{style: 'width: 400px; left: 50%; transform: translateX(-50%);'}
@@ -69,6 +66,11 @@
           = button_tag('Stop scanning', id: 'qr-code-reader-btn-stop', style: 'display: none; height: 40px;', data: {action: 'click->qr_code_scanner#stop'})
           #qr-code-reader-result{style: 'margin-top: 1rem;'}
 
+        .field.label.border{data: { controller: 'file_field'}}
+          = text_field_tag :photo
+          = file_field_tag :photo_file, accept: 'image/x-png,image/png,image/gif,image/jpeg', data: { action: 'change->file_field#handleFile'}
+          = label_tag :photo
+        %img{id: "image-preview", src: "", style: 'width: 300px;'}
 
 
 :javascript

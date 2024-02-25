@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   get "/service-worker.js" => "service_worker#service_worker"
   get "/manifest.json" => "service_worker#manifest"
-  get "/offline.html" => "service_worker#offline"
+  get "/offline" => "service_worker#offline"
 
   resources :devices
   resources :pwas

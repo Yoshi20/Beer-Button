@@ -20,7 +20,7 @@ function stop() {
       document.getElementById('qr-code-reader-btn-start').style.display = 'initial';
       document.getElementById('qr-code-reader-btn-stop').style.display = 'none';
     }).catch((err) => {
-      console.alert('stopping QR code scanner failed!')
+      console.error('stopping QR code scanner failed!')
     });
   }
 }

@@ -24,7 +24,7 @@ registerRoute(
     cacheName: 'documents',
   })
 )
-// For assets (scripts and images), we use cache first
+// For assets (scripts & images etc.), we use cache first
 registerRoute(
   ({request}) => (request.destination === "script" || request.destination === "style"),
   new CacheFirst({
@@ -40,13 +40,13 @@ registerRoute(
 registerRoute(
   ({request}) => (request.destination === "font"),
   new CacheFirst({
-    cacheName: 'fonts',
+    cacheName: 'assets-fonts',
   })
 )
 registerRoute(
   ({request}) => (request.destination === "audio"),
   new CacheFirst({
-    cacheName: 'audios',
+    cacheName: 'assets-audios',
   })
 )
 
@@ -54,7 +54,7 @@ registerRoute(
 const {warmStrategyCache} = workbox.recipes;
 const {setCatchHandler} = workbox.routing;
 const strategy = new CacheFirst();
-const urls = ['/offline.html'];
+const urls = ['/offline'];
 // Warm the runtime cache with a list of asset URLs
 warmStrategyCache({urls, strategy});
 // Trigger a 'catch' handler when any of the other routes fail to generate a response
