@@ -8,3 +8,5 @@ import OrdersController from "./orders_controller"
 application.register("orders", OrdersController)
 import IsOnlineController from "./is_online_controller"
 application.register("is_online", IsOnlineController)
+import QrCodeScannerController from "./qr_code_scanner_controller"
+application.register("qr_code_scanner", QrCodeScannerController)

@@ -58,14 +58,16 @@
 
     .s12
       .center-align
-        = image_tag 'blup.png', width: '10%', alt: 'QR image', id: 'myQR'
 
+        -# %video#video{:controls => "", :height => "240", :width => "320"}
+        -# %span#result
 
-      -# %video#video{:controls => "", :height => "240", :width => "320"}
-      -# %span#result
-
-      #reader{width:"200px"}
-
+        .qr-code-scanner{data: { controller: 'qr_code_scanner'}}
+          = image_tag 'blup.png', width: '10%', alt: 'QR image', id: 'myQR', data: {action: 'click->qr_code_scanner#start'}
+          #qr-code-reader{style: 'width: 400px; left: 50%; transform: translateX(-50%);'}
+          = button_tag('Scan QR-Code', id: 'qr-code-reader-btn-start', style: 'height: 40px;', data: {action: 'click->qr_code_scanner#start'})
+          = button_tag('Stop scanning', id: 'qr-code-reader-btn-stop', style: 'display: none; height: 40px;', data: {action: 'click->qr_code_scanner#stop'})
+          #qr-code-reader-result{style: 'margin-top: 1rem;'}
 
 :javascript
   // check compatibility
