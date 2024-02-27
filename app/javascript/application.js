@@ -1,3 +1,4 @@
+console.log("application.js");//blup
 // Entry point for the build script in your package.json
 
 // beercss@3.0.8
@@ -11,6 +12,7 @@ import "./custom/companion"
 
 // fix for beercss forms with hotwire
 document.addEventListener("turbo:load", function (e) {
+  console.log("turbo:load");//blup
   if (ui != undefined) {
     ui();
   }

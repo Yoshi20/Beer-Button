@@ -1,16 +1,8 @@
 import { Controller } from "@hotwired/stimulus"
 
-var intervalID = 0;
+import { isOnline } from "../global/is_online"
 
-async function isOnline() {
-  if (!window.navigator.onLine) return false;
-  try {
-    const response = await fetch("/1pixel.png")
-    return response.ok;
-  } catch (err) {
-    return false;
-  }
-}
+var intervalID = 0;
 
 async function handleIsOnline() {
   const dot = document.getElementById('is-online-dot');
@@ -33,7 +25,7 @@ export default class extends Controller {
     /* Start timer if required */
     if (intervalID == 0) { // must only be started the very first time
       handleIsOnline(); // first interval call
-      intervalID = setInterval(handleIsOnline, 1000);
+      intervalID = setInterval(handleIsOnline, 3000);
     }
   }
 }
