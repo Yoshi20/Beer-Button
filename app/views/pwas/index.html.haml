@@ -59,6 +59,8 @@
     -# blup: PWA tests
     .s12
       .center-align
+        = button_tag('Sync', id: 'sync-btn', style: 'height: 40px;', data: {controller: 'pwa_sync', action: 'click->pwa_sync#sync'})
+
         .qr-code-scanner{data: { controller: 'qr_code_scanner'}}
           = image_tag 'blup.png', width: '10%', alt: 'QR image', id: 'myQR', data: {action: 'click->qr_code_scanner#start'}
           #qr-code-reader{style: 'width: 400px; left: 50%; transform: translateX(-50%);'}

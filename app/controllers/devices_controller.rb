@@ -48,7 +48,8 @@ class DevicesController < ApplicationController
     respond_to do |format|
       if @device.update(device_params)
         format.html { redirect_to devices_url, notice: t('flash.notice.updating_device') }
-        format.json { render :show, status: :ok, location: @device }
+        # format.json { render :show, status: :ok, location: @device }
+        format.json { head :ok, location: @device }
       else
         format.html { render :edit, alert: t('flash.alert.updating_device') }
         format.json { render json: @device.errors, status: :unprocessable_entity }

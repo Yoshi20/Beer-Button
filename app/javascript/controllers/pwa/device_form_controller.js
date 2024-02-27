@@ -14,16 +14,20 @@ export default class extends Controller {
     const form = e.target.closest('form');
     console.log("blup: submit");
     this.isOnline = await isOnline(); // we check again in case it changed just before the submission
-    if (true){//blup }!this.isOnline) {
+    // if (true){//blup
+    if (!this.isOnline) {
       // const table_name = form.id.split('_')[1];
       const formData = new FormData(form);
       const formDataObj = {};
       formData.forEach((value, key) => (formDataObj[key] = value));
+
+      // Add form action
+      formDataObj.href = form.action;
       console.log('formDataObj:',formDataObj);//blup
 
       // TODO: validate device data
 
-      await db.open();
+      // await db.open(); blup: sollte nicht nötig sein
 
       // const existing_form = await db.forms.get({
       //   "dev_eui": formDataObj['device[dev_eui]']

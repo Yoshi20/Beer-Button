@@ -17,3 +17,5 @@ application.register("file_field", FileFiledController)
 
 import PwaDeviceFormController from "./pwa/device_form_controller"
 application.register("pwa_device_form", PwaDeviceFormController)
+import PwaSyncController from "./pwa/sync_controller"
+application.register("pwa_sync", PwaSyncController)
