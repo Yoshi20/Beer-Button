@@ -8,7 +8,12 @@ class DevicesController < ApplicationController
     # @devices = filter_devices(@devices) if params[:filter].present?
     respond_to do |format|
       format.html { @devices_total_count = @devices.count }
-      format.json { @devices.to_json }
+      format.json { render json: @devices.as_json(
+        only: [:id, :name, :dev_eui, :battery, :last_time_seen],
+        include: {
+          device_type: { only: [:name, :number_of_buttons] },
+        },
+      )}
     end
   end
 
