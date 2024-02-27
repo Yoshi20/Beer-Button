@@ -15,5 +15,5 @@ application.register("qr_code_scanner", QrCodeScannerController)
 import FileFiledController from "./file_field_controller"
 application.register("file_field", FileFiledController)
 
-import PwaFormController from "./pwa/form_controller"
-application.register("pwa_form", PwaFormController)
+import PwaDeviceFormController from "./pwa/device_form_controller"
+application.register("pwa_device_form", PwaDeviceFormController)
